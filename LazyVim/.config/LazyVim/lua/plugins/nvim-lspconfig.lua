@@ -1,5 +1,16 @@
 return {
   "neovim/nvim-lspconfig",
+  dependencies = {
+    {
+      "SmiteshP/nvim-navbuddy",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+        "MunifTanjim/nui.nvim",
+        "numToStr/Comment.nvim",
+      },
+      opts = { lsp = { auto_attach = true } },
+    },
+  },
   opts = {
     -- options for vim.diagnostic.config()
     diagnostics = {
