@@ -6,7 +6,8 @@ return {
       follow_current_file = true,
     },
     window = {
-      width = 25,
+      width = 28,
+      position = "right",
       mappings = {
         ["<space>"] = "none",
       },

@@ -43,6 +43,13 @@ return {
               callSnippet = "Replace",
             },
           },
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                classRegex = { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+              },
+            },
+          },
         },
       },
     },

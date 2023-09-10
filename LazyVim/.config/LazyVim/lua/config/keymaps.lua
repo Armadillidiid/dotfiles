@@ -28,26 +28,30 @@ map("n", "<c-n>", "<cmd>Telescope oldfiles<cr>")
 -- -- Toggle auto-save
 -- map("n", "<leader>n", ":ASToggle<CR>", { desc = "Toggle auto-save" })
 
---n  Map <leader><space> to delete buffer
--- map("n", "<leader><space>", ':lua require("mini.bufremove").delete(0, false)<CR>', { desc = "Delete buffer" })
+-- Map <leader><space> to search buffer
+map("n", "<leader><space>", ":lua require('telescope.builtin').buffers()<CR>", { desc = "Search buffer" })
 
 -- Telescope project_root
 map(
   "n",
-  "<leader>pP",
+  "<leader>Pp",
   ":lua require'telescope'.extensions.project.project{}<CR>",
   { desc = "Telescope project", noremap = true, silent = true }
 )
 
 -- ProjectMgr
-map("n", "<leader>pp", ":ProjectMgr<CR>", { desc = "ProjectMgr" })
+map("n", "<leader>PP", ":ProjectMgr<CR>", { desc = "ProjectMgr" })
 
 -- ChatGPT mapping to open chat
 map("n", "<leader>cc", ":ChatGPT<CR>", { desc = "ChatGPT" })
 
 -- Find bugs with code using codeGPT
-map("v", "<leader>cp", ":Chat please fix any bugs and errors in the following code<CR>", { desc = "ChatGPTProblem" })
-map("x", "<leader>cp", ":Chat please fix any bugs and errors in the following code<CR>", { desc = "ChatGPTProblem" })
+map(
+  "x",
+  "<leader>cp",
+  ":Chat refine this code by identifying and correcting any errors or bugs that may be present in the following snippet<CR>",
+  { desc = "ChatGPTProblem" }
+)
 
 -- Leetcode keymaps
 map("n", "<leader>Ll", ":LeetCodeList<cr>", { desc = "LeetCodeList" })
@@ -56,7 +60,12 @@ map("n", "<leader>Ls", ":LeetCodeSubmit<cr>", { desc = "LeetCodeSubmit" })
 map("n", "<leader>Li", ":LeetCodeSignIn<cr>", { desc = "LeetCodeSignIn" })
 
 -- Telescope browse
-map("n", "<leader>fB", ":lua require 'telescope'.extensions.file_browser.file_browser()<CR>", { desc = "File browse" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>fw",
+  ":lua require('telescope').extensions.file_browser.file_browser({ path = vim.fn.expand('%:p:h'), select_buffer = true })<CR>",
+  { noremap = true, silent = true, desc = "File browse" }
+)
 
 -- Navbuddy
 map("n", "<leader>nv", ":Navbuddy<CR>", { desc = "Navbuddy" })
@@ -65,23 +74,30 @@ map("n", "<leader>nv", ":Navbuddy<CR>", { desc = "Navbuddy" })
 wk.register({
   ["<leader>cC"] = {
     name = "Copilot",
-    d = {":Copilot disable<CR>", "disable"},
-    e = {":Copilot enable<CR>", "enable"},
-    s = {":Copilot status<CR>", "status"}
-  }
+    d = { ":Copilot disable<CR>", "disable" },
+    e = { ":Copilot enable<CR>", "enable" },
+    s = { ":Copilot status<CR>", "status" },
+  },
 })
 
 -- Ugaterm
 wk.register({
   t = {
     name = "ugaterm",
-    t = {':UgatermToggle<CR>', 'UgatermToggle'},
-    n = {'<cmd>UgatermNew<CR>', 'UgatermNew'},
-    d = {'<cmd>UgatermDelete<CR>', 'UgatermDelete'},
-    s = {'<cmd>UgatermSelect<CR>', 'UgatermSelect'},
-  }
-}, { prefix = "<leader>"})
-
+    t = { ":UgatermOpen<CR>", "UgatermOpen" },
+    d = { "<cmd>UgatermHide<CR>", "UgatermHide" },
+    -- t = {':UgatermToggle<CR>', 'UgatermToggle'},
+    -- n = {'<cmd>UgatermNew<CR>', 'UgatermNew'},
+    -- d = {'<cmd>UgatermDelete<CR>', 'UgatermDelete'},
+    -- s = {'<cmd>UgatermSelect<CR>', 'UgatermSelect'},
+  },
+}, { prefix = "<leader>" })
 
 -- Telescope undo
 map("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Telescope undo" })
+
+-- Trouble references
+map("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>", { desc = "Trouble references" })
+
+-- alias :TailwindSort neovim command to TW
+vim.api.nvim_create_user_command("TW", ":TailwindSort", { nargs = 0 })

@@ -4,7 +4,7 @@ return {
   -- stylua: ignore
   keys = {
     { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
-    { "<leader><space>", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
+    { "<leader><space>", ":lua require('telescope.builtin').buffers()<CR>", desc = "Delete Buffer" },
     { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
   },
 }

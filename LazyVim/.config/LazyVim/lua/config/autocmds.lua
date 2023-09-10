@@ -4,7 +4,17 @@
 
 vim.api.nvim_create_autocmd("BufEnter", {
   callback = function()
-    vim.opt.formatoptions:remove { "c", "r", "o" }
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
   end,
   desc = "Disable New Line Comment",
 })
+
+-- highlight LineNr guifg=#b4befe
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   pattern="*",
+--   callback = function()
+--     vim.api.nvim_set_hl(0, "LineNr", { fg = "#cdd6f4" })
+--     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#89b4fa" })
+--   end,
+-- })
+

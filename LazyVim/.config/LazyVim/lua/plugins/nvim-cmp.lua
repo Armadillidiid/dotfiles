@@ -9,6 +9,7 @@ return {
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-emoji",
+      -- "js-everts/cmp-tailwind-colors",
     },
     opts = function()
       local cmp = require("cmp")
@@ -37,44 +38,22 @@ return {
           }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
-          {
-            name = "nvim_lsp",
-            -- entry_filter = function(entry, context)
-            --   local kind = entry:get_kind()
-            --   local line = context.cursor.line
-            --   local col = context.cursor.col
-            --   local char_before_cursor = string.sub(line, col - 1, col - 1)
-            --
-            --   if char_before_cursor == "." then
-            --     if kind == 2 or kind == 5 then
-            --       return true
-            --     else
-            --       return false
-            --     end
-            --   elseif string.match(line, "^%s*%w*$") then
-            --     if kind == 3 or kind == 6 then
-            --       return true
-            --     else
-            --       return false
-            --     end
-            --   end
-            --   return true
-            -- end,
-          },
+          { name = "nvim_lsp", },
           { name = "luasnip" },
           { name = "buffer" },
           { name = "path" },
           { name = "emoji" },
         }),
-        formatting = {
-          format = function(_, item)
-            local icons = require("lazyvim.config").icons.kinds
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
-            return item
-          end,
-        },
+formatting = {
+  format = function(entry, item)
+    item = require("cmp-tailwind-colors").format(entry, item)
+    local icons = require("lazyvim.config").icons.kinds
+    if icons[item.kind] then
+      item.kind = icons[item.kind] .. item.kind
+    end
+    return item
+  end,
+},
         experimental = {
           ghost_text = {
             hl_group = "LspCodeLens",
