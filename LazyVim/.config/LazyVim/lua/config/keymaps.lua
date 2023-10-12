@@ -129,4 +129,4 @@ map('n', 'gw', '*N', { noremap = true, silent = true })
 -- end, { desc = "Lazygit (cwd dir)" })
 
 -- Rename filename of current buffer with TSC support
--- map("n", "<leader>cR", ":TStRenameFile<CR>", { desc = "Rename file" })
+map("n", "<leader>cR", ":TSToolsRenameFile<CR>", { desc = "Rename file" })
