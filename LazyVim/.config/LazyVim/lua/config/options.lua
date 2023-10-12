@@ -14,6 +14,9 @@ vim.g.leetcode_browser = "firefox"
 vim.g.leetcode_solution_filetype = "typescript"
 vim.g.leetcode_hide_paid_only = 1
 
+-- Enable LazyVim auto format
+vim.g.autoformat = false
+
 -- Set highlight for line column
 vim.api.nvim_set_hl(0, "LineNr", {fg="#cdd6f4"})
 vim.api.nvim_set_hl(0, "CursorLineNr", {fg="#89b4fa"})
