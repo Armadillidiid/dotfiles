@@ -16,6 +16,19 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+function search_word_under_cursor()
+  local col = vim.fn.col(".")
+  local word = vim.fn.expand("<cword>")
+  local start_col = col - #word + 1
+
+  if col == start_col then
+  else
+    vim.fn.setreg("/", "\\V" .. vim.fn.escape(word, "\\") .. "\\v")
+    vim.cmd("set hlsearch")
+    vim.fn.search("\\<" .. word .. "\\>", "cbW")
+  end
+end
+
 -- Map "jk" to exit Insert mode
 map("i", "jk", "<Esc>", { noremap = true })
 
@@ -101,3 +114,19 @@ map("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>", { desc = "Trouble refe
 
 -- alias :TailwindSort neovim command to TW
 vim.api.nvim_create_user_command("TW", ":TailwindSort", { nargs = 0 })
+
+-- Create a keybinding for the function
+-- map("n", "gw", ":lua search_word_under_cursor()<CR>", { noremap = true, silent = true, desc = "Search word" })
+map('n', 'gw', '*N', { noremap = true, silent = true })
+
+-- Lazygit change size of window
+-- map("n", "<leader>gg", function()
+--   Util.float_term({ "lazygit" }, { size = { width = 0.94, height = 0.94 }, cwd = Util.get_root() })
+-- end, { desc = "Lazygit (root dir)" })
+
+-- map("n", "<leader>gG", function()
+--   Util.float_term({ "lazygit" }, { size = { width = 1.0, height = 1.0 } })
+-- end, { desc = "Lazygit (cwd dir)" })
+
+-- Rename filename of current buffer with TSC support
+-- map("n", "<leader>cR", ":TStRenameFile<CR>", { desc = "Rename file" })
