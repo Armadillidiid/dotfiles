@@ -16,19 +16,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-function search_word_under_cursor()
-  local col = vim.fn.col(".")
-  local word = vim.fn.expand("<cword>")
-  local start_col = col - #word + 1
-
-  if col == start_col then
-  else
-    vim.fn.setreg("/", "\\V" .. vim.fn.escape(word, "\\") .. "\\v")
-    vim.cmd("set hlsearch")
-    vim.fn.search("\\<" .. word .. "\\>", "cbW")
-  end
-end
-
 -- Map "jk" to exit Insert mode
 map("i", "jk", "<Esc>", { noremap = true })
 
@@ -99,10 +86,6 @@ wk.register({
     name = "ugaterm",
     t = { ":UgatermOpen<CR>", "UgatermOpen" },
     d = { "<cmd>UgatermHide<CR>", "UgatermHide" },
-    -- t = {':UgatermToggle<CR>', 'UgatermToggle'},
-    -- n = {'<cmd>UgatermNew<CR>', 'UgatermNew'},
-    -- d = {'<cmd>UgatermDelete<CR>', 'UgatermDelete'},
-    -- s = {'<cmd>UgatermSelect<CR>', 'UgatermSelect'},
   },
 }, { prefix = "<leader>" })
 
@@ -116,7 +99,6 @@ map("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>", { desc = "Trouble refe
 vim.api.nvim_create_user_command("TW", ":TailwindSort", { nargs = 0 })
 
 -- Create a keybinding for the function
--- map("n", "gw", ":lua search_word_under_cursor()<CR>", { noremap = true, silent = true, desc = "Search word" })
 map('n', 'gw', '*N', { noremap = true, silent = true })
 
 -- Lazygit change size of window
@@ -130,3 +112,15 @@ map('n', 'gw', '*N', { noremap = true, silent = true })
 
 -- Rename filename of current buffer with TSC support
 map("n", "<leader>cR", ":TSToolsRenameFile<CR>", { desc = "Rename file" })
+
+-- Harpoon
+wk.register({
+  h = {
+    name = "harpoon",
+    x = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Harpoon Mark" },
+    n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Harpoon Nav Next" },
+    p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Harpoon Nav Prev" },
+    m = { ":Telescope harpoon marks<CR>", "Harpoon Marks" },
+  },
+}, { prefix = "<leader>" })
+

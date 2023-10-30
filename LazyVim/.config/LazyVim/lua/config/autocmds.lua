@@ -9,12 +9,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
   desc = "Disable New Line Comment",
 })
 
--- highlight LineNr guifg=#b4befe
--- vim.api.nvim_create_autocmd("ColorScheme", {
---   pattern="*",
---   callback = function()
---     vim.api.nvim_set_hl(0, "LineNr", { fg = "#cdd6f4" })
---     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#89b4fa" })
---   end,
--- })
-
+-- Set highlight groups
+vim.api.nvim_create_autocmd("BufRead", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "#b4befe" })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#89b4fa" })
+    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ff413f", bg = "#1e1e2f" })
+  end,
+})

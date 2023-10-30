@@ -5,9 +5,9 @@
 local opt = vim.opt
 
 -- Set highlight groups for the Leap plugin
-vim.cmd('highlight LeapLabelPrimary guifg=#fc0352 guibg=none')
-vim.cmd('highlight LeapLabelSecondary guifg=cyan guibg=none')
-vim.cmd('highlight LeapBackdrop guifg=grey')
+-- vim.cmd("highlight LeapLabelPrimary guifg=#fc0352 guibg=none")
+-- vim.cmd("highlight LeapLabelSecondary guifg=cyan guibg=none")
+-- vim.cmd("highlight LeapBackdrop guifg=grey")
 
 -- Set the browser to open the leetcode problem in
 vim.g.leetcode_browser = "firefox"
@@ -18,8 +18,9 @@ vim.g.leetcode_hide_paid_only = 1
 vim.g.autoformat = false
 
 -- Set highlight for line column
-vim.api.nvim_set_hl(0, "LineNr", {fg="#cdd6f4"})
-vim.api.nvim_set_hl(0, "CursorLineNr", {fg="#89b4fa"})
+
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#cdd6f4" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#89b4fa" })
 vim.cmd("highlight LineNr guifg=#b4befe")
 
 -- Set this for ToggleTerm terminals to not be discarded when closed
