@@ -55,7 +55,7 @@ alias nvs=nvims
 # }
 
 # Chatgpt API_KEY
-OPENAI_API_KEY=$(./.local/bin/open-ai-key.sh)
+OPENAI_API_KEY=$(~/.local/bin/open-ai-key.sh)
 export OPENAI_API_KEY
 
 # Powerline
