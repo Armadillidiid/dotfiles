@@ -1,15 +1,16 @@
 return {
   "charludo/projectmgr.nvim",
+  enabled = true,
   lazy = false, -- important!
   autogit = {
     enabled = false,
     command = "git pull --ff-only",
   },
   reopen = false,
-  session = { enabled = true, file = "Session.vim" },
+  session = { enabled = false, file = "Session.vim" },
   shada = { enabled = false, file = "main.shada" },
   scripts = {
-    enabled = true,
+    enabled = false,
     file_startup = "startup.sh",
     file_shutdown = "shutdown.sh",
   },

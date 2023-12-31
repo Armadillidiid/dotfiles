@@ -46,12 +46,23 @@ map("n", "<leader>PP", ":ProjectMgr<CR>", { desc = "ProjectMgr" })
 map("n", "<leader>cc", ":ChatGPT<CR>", { desc = "ChatGPT" })
 
 -- Find bugs with code using codeGPT
-map(
-  "x",
-  "<leader>cp",
-  ":Chat refine this code by identifying and correcting any errors or bugs that may be present in the following snippet<CR>",
-  { desc = "ChatGPTProblem" }
-)
+-- map(
+--   "v",
+--   "<leader>cp",
+--   ":Chat refine this code by identifying and correcting any errors or bugs that may be present in the following snippet<CR>",
+--   { desc = "ChatGPTProblem" }
+-- )
+wk.register({
+  ["<leader>c"] = {
+    name = "code",
+    p = {
+      ":Chat fix<CR>",
+      "ChatGPTProblem",
+    },
+  },
+}, {
+  mode = "v",
+})
 
 -- Leetcode keymaps
 map("n", "<leader>Ll", ":LeetCodeList<cr>", { desc = "LeetCodeList" })
@@ -99,7 +110,7 @@ map("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>", { desc = "Trouble refe
 vim.api.nvim_create_user_command("TW", ":TailwindSort", { nargs = 0 })
 
 -- Create a keybinding for the function
-map('n', 'gw', '*N', { noremap = true, silent = true })
+map("n", "gw", "*N", { noremap = true, silent = true })
 
 -- Lazygit change size of window
 -- map("n", "<leader>gg", function()
@@ -124,3 +135,10 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
+wk.register({
+  ["<leader><tab>"] = {
+    name = "tabs",
+    h = { "<cmd>tabprev<CR>", "Previous tab" },
+    l = { "<cmd>tabnext<CR>", "Next tab" },
+  },
+})
