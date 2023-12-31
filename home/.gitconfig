@@ -1,0 +1,15 @@
+[user]
+	name = Emmanuel Isenah
+	email = emmanuelisenah@gmail.com
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[alias]
+	coa = !git add -A && git commit -m
+[url "https://"]
+	insteadOf = git://
+[core]
+	editor = NVIM_APPNAME=LazyVim nvim
+[fetch]
+	prune = true

@@ -1,0 +1,12 @@
+os:
+  editPreset: 'NVIM_APPNAME=LazyVim nvim'
+  # opencommand: "NVIM_APPNAME=LazyVim nvim {{filename}} > /dev/null"
+  # editCommandTemplate: "{{editor}} --server $NVIM --remote-tab {{filename}}"
+
+keybinding:
+  universal:
+    scrollUpMain-alt1: "<c-u>"
+    scrollDownMain-alt1: "<c-d>"
+
+go:
+  parseEmoji: true
