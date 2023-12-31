@@ -25,3 +25,7 @@
 (defalias
   cap (tap-hold 200 200 caps (layer-toggle fncaps))
 )
+
+(defcfg
+  linux-dev /dev/input/event3
+)
