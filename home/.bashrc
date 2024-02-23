@@ -24,6 +24,7 @@ source /usr/share/nvm/init-nvm.sh
 # Neovim config switcher
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 alias vi="nvim"
+alias ai="gh copilot suggest"
 
 function nvims() {
 	items=$(
