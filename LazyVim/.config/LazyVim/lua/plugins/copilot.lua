@@ -17,5 +17,8 @@ return {
         dismiss = "<C-]>",
       },
     },
+    filetypes = {
+      yaml = true,
+    },
   },
 }

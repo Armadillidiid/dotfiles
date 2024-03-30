@@ -65,10 +65,16 @@ wk.register({
 })
 
 -- Leetcode keymaps
-map("n", "<leader>Ll", ":LeetCodeList<cr>", { desc = "LeetCodeList" })
-map("n", "<leader>Lt", ":LeetCodeTest<cr>", { desc = "LeetCodeTest" })
-map("n", "<leader>Ls", ":LeetCodeSubmit<cr>", { desc = "LeetCodeSubmit" })
-map("n", "<leader>Li", ":LeetCodeSignIn<cr>", { desc = "LeetCodeSignIn" })
+map("n", "<leader>Lm", ":Leet<cr>", { desc = "Menu" })
+map("n", "<leader>Lt", ":Leet run<cr>", { desc = "Test" })
+map("n", "<leader>Ls", ":Leet submit<cr>", { desc = "Submit" })
+map("n", "<leader>Lr", ":Leet reset<cr>", { desc = "Reset question" })
+map("n", "<leader>Ld", ":Leet desc<cr>", { desc = "Toggle description" })
+map("n", "<leader>LR", ":Leet random<cr>", { desc = "Random question" })
+map("n", "<leader>LD", ":Leet daily<cr>", { desc = "Daily question" })
+map("n", "<leader>Li", ":Leet info<cr>", { desc = "Info" })
+map("n", "<leader>Lp", ":Leet list<cr>", { desc = "Problem Picker" })
+map("n", "<leader>Lu", ":Leet last_submit<cr>", { desc = "Previous submitted" })
 
 -- Telescope browse
 vim.api.nvim_set_keymap(

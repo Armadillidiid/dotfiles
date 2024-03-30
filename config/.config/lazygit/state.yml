@@ -1,18 +1,22 @@
 lastupdatecheck: 1697297796
 recentrepos:
 - /home/emmanuel/.dotfiles
+- /home/emmanuel/ghq/github.com/Armadillidiid/portfolio
 - /home/emmanuel/ghq/github.com/govahq/monorepo
+- /home/emmanuel/ghq/github.com/Armadillidiid/render-and-module-tree-demo
+- /home/emmanuel/ghq/github.com/govahq/USSDLandingPage
+- /home/emmanuel/ghq/github.com/Armadillidiid/reddit-clone
+- /home/emmanuel/Documents/tanstack-table-demo
+- /home/emmanuel/ghq/github.com/Armadillidiid/food-delivery-ecommerce
+- /home/emmanuel/ghq/github.com/Armadillidiid/ssh-deploy
+- /home/emmanuel/ghq/github.com/Armadillidiid/openvpn-install
 - /home/emmanuel/ghq/github.com/21toffy/yendy26
 - /home/emmanuel/Documents/leetcode
-- /home/emmanuel/ghq/github.com/govahq/USSDLandingPage
 - /home/emmanuel/ghq/github.com/Armadillidiid/hashnode-next
-- /home/emmanuel/Documents/tanstack-table-demo
-- /home/emmanuel/ghq/github.com/Armadillidiid/portfolio
 - /home/emmanuel/Documents/pnpm-monorepo
 - /home/emmanuel/ghq/github.com/chingu-voyages/v47-tier3-team-29
 - /home/emmanuel/ghq/github.com/govahq/dashboardDesign
 - /home/emmanuel/ghq/github.com/Armadillidiid/starter-kit
-- /home/emmanuel/ghq/github.com/Armadillidiid/reddit-clone
 - /home/emmanuel/ghq/github.com/govahq/payout
 - /home/emmanuel/ghq/github.com/t3-oss/t3-env
 - /home/emmanuel/ghq/github.com/govahq/GovaAdminBackOffice
@@ -20,7 +24,6 @@ recentrepos:
 - /home/emmanuel/Documents/hms
 - /home/emmanuel/ghq/github.com/ThePrimeagen/kata-machine
 - /home/emmanuel/ghq/github.com/docker/getting-started-app
-- /home/emmanuel/ghq/github.com/Armadillidiid/food-delivery-ecommerce
 - /home/emmanuel/ghq/github.com/Armadillidiid/react-game-store
 startuppopupversion: 5
 customcommandshistory:
