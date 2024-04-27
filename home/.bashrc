@@ -28,7 +28,6 @@ alias ai="gh copilot suggest"
 alias aix="gh copilot explain"
 alias save-session="~/.local/bin/save-kitty-session.sh"
 alias res-session="~/.local/bin/restore-kitty-session.sh"
-alias cd="z"
 alias vpn="sudo openvpn --config ~/.openvpn/emmanuel.ovpn"
 
 function nvims() {
@@ -108,4 +107,4 @@ function repo() {
 . <(minikube completion bash) 
 
 # setup zoxide
-eval "$(zoxide init bash)"
+eval "$(zoxide init bash --cmd cd)"

@@ -148,3 +148,14 @@ wk.register({
     l = { "<cmd>tabnext<CR>", "Next tab" },
   },
 })
+
+-- open current file on the web of hosting provider e.g GitHub
+wk.register({
+  g = {
+    name = "git",
+    b = { ":GBrowse<CR>", "Browse" },
+  },
+})
+
+-- add all missing imports using tsserver 
+map("n", "<leader>ci", ":TSToolsAddMissingImports<CR>", { desc = "Add Missing Imports" })
