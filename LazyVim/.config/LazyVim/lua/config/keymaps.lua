@@ -146,13 +146,7 @@ wk.register({
   },
 })
 
--- open current file on the web of hosting provider e.g GitHub
-wk.register({
-  g = {
-    name = "git",
-    b = { ":GBrowse<CR>", "Browse" },
-  },
-})
+map("n", "<leader>gB", "<cmd>GBrowse<CR>", { desc = "Browse In Web" })
 
 -- LazyVim switched off of TSTools in favor of nvim-lsp-ts-utils
 -- -- add all missing imports using tsserver
