@@ -127,9 +127,6 @@ map("n", "gw", "*N", { noremap = true, silent = true })
 --   Util.float_term({ "lazygit" }, { size = { width = 1.0, height = 1.0 } })
 -- end, { desc = "Lazygit (cwd dir)" })
 
--- Rename filename of current buffer with TSC support
-map("n", "<leader>cR", ":TSToolsRenameFile<CR>", { desc = "Rename file" })
-
 -- Harpoon
 wk.register({
   h = {
@@ -157,5 +154,16 @@ wk.register({
   },
 })
 
--- add all missing imports using tsserver 
-map("n", "<leader>ci", ":TSToolsAddMissingImports<CR>", { desc = "Add Missing Imports" })
+-- LazyVim switched off of TSTools in favor of nvim-lsp-ts-utils
+-- -- add all missing imports using tsserver
+-- map("n", "<leader>ci", ":TSToolsAddMissingImports<CR>", { desc = "Add Missing Imports" })
+-- Rename filename of current buffer with TSC support
+-- map("n", "<leader>cR", ":TSToolsRenameFile<CR>", { desc = "Rename file" })
+
+-- -- add all missing imports using tsserver code action
+map(
+  "n",
+  "<leader>ci",
+  '<cmd>lua vim.lsp.buf.code_action({apply = true, context = {only = {"source.addMissingImports.ts"}, diagnostics = {}}})<CR>',
+  { noremap = true, silent = true, desc = "Add Missing Imports" }
+)
