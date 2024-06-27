@@ -2,9 +2,9 @@ return {
   "folke/noice.nvim",
   opts = function(_, opts)
     table.insert(opts.routes, {
-      view = "mini",
       filter = {
         event = "notify",
+        kind = "info",
         any = {
           { find = "hidden" },
           { find = "clipboard" },
@@ -12,6 +12,7 @@ return {
           { find = "Renamed" },
         },
       },
+      opts = { skip = true },
     })
     table.insert(opts.routes, {
       filter = {

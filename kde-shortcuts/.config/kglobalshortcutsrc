@@ -47,6 +47,17 @@ toggle_three_column_layout=none,,Toggle Three Column Layout
 toggle_tile_layout=none,Meta+T,Toggle Tile Layout
 toggle_window_floating=Meta+Shift+Space,Meta+F,Toggle Active Window Floating
 
+[btop.desktop]
+_k_friendly_name=btop++
+_launch=Meta+O,none,btop++
+
+[firefox.desktop]
+_k_friendly_name=Firefox Web Browser
+_launch=Meta+B,none,Firefox Web Browser
+new-private-window=none,none,New Private Window
+new-window=none,none,New Window
+profile-manager-window=none,none,Open the Profile Manager
+
 [kaccess]
 Toggle Screen Reader On and Off=Meta+Alt+S,Meta+Alt+S,Toggle Screen Reader On and Off
 _k_friendly_name=Accessibility
@@ -64,7 +75,9 @@ display=Meta+V\tDisplay,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=Custom Shortcuts Service
+{35744fe5-7501-4344-8197-ed6f7c0a428d}=Meta+Z,none,Set easy effect headset
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Search
+{f97883f9-de64-42ff-81f9-1dc6453d1b58}=Meta+X,none,Set easy effect buds
 
 [kitty.desktop]
 _k_friendly_name=kitty
@@ -80,7 +93,7 @@ decrease-volume-Mic Boost@HD-Audio Generic=none,none,Decrease volume of Mic Boos
 decrease-volume-PCM@HD-Audio Generic=none,none,Decrease volume of PCM on HD-Audio Generic
 decrease-volume-Speaker@HD-Audio Generic=none,none,Decrease volume of Speaker on HD-Audio Generic
 decrease_microphone_volume=Microphone Volume Down,Microphone Volume Down,Decrease Microphone Volume
-decrease_volume=Volume Down,Volume Down,Decrease Volume
+decrease_volume=Volume Down\tMeta+_,Volume Down,Decrease Volume
 increase-volume-Capture@HD-Audio Generic=none,none,Increase volume of Capture on HD-Audio Generic
 increase-volume-Headphone@HD-Audio Generic=none,none,Increase volume of Headphone on HD-Audio Generic
 increase-volume-Internal Mic Boost@HD-Audio Generic=none,none,Increase volume of Internal Mic Boost on HD-Audio Generic
@@ -89,7 +102,7 @@ increase-volume-Mic Boost@HD-Audio Generic=none,none,Increase volume of Mic Boos
 increase-volume-PCM@HD-Audio Generic=none,none,Increase volume of PCM on HD-Audio Generic
 increase-volume-Speaker@HD-Audio Generic=none,none,Increase volume of Speaker on HD-Audio Generic
 increase_microphone_volume=Microphone Volume Up,Microphone Volume Up,Increase Microphone Volume
-increase_volume=Volume Up,Volume Up,Increase Volume
+increase_volume=Volume Up\tMeta++,Volume Up,Increase Volume
 mic_mute=Microphone Mute\tMeta+Volume Mute,Microphone Mute\tMeta+Volume Mute,Mute Microphone
 mute=Volume Mute,Volume Mute,Mute
 toggle-mute-Capture@HD-Audio Generic=none,none,Mute Capture on HD-Audio Generic
@@ -277,50 +290,6 @@ switchToRecentDesktop=none,,Virtual Desktop Bar - Switch to Recent Desktop
 view_actual_size=none,Meta+0,Zoom to Actual Size
 view_zoom_in=Meta+=,Meta++\tMeta+=,Zoom In
 view_zoom_out=Meta+-,Meta+-,Zoom Out
-
-[lattedock]
-_k_friendly_name=Latte Dock
-activate entry 1=none,Meta+1,Activate Entry 1
-activate entry 10=none,Meta+0,Activate Entry 10
-activate entry 11=Meta+Z,Meta+Z,Activate Entry 11
-activate entry 12=Meta+X,Meta+X,Activate Entry 12
-activate entry 13=none,Meta+C,Activate Entry 13
-activate entry 14=none,Meta+V,Activate Entry 14
-activate entry 15=Meta+B,Meta+B,Activate Entry 15
-activate entry 16=none,Meta+N,Activate Entry 16
-activate entry 17=Meta+M,Meta+M,Activate Entry 17
-activate entry 18=Meta+\\,,Meta+\\,,Activate Entry 18
-activate entry 19=none,Meta+.,Activate Entry 19
-activate entry 2=none,Meta+2,Activate Entry 2
-activate entry 3=none,Meta+3,Activate Entry 3
-activate entry 4=none,Meta+4,Activate Entry 4
-activate entry 5=none,Meta+5,Activate Entry 5
-activate entry 6=none,Meta+6,Activate Entry 6
-activate entry 7=none,Meta+7,Activate Entry 7
-activate entry 8=none,Meta+8,Activate Entry 8
-activate entry 9=none,Meta+9,Activate Entry 9
-new instance for entry 1=Meta+Ctrl+1,Meta+Ctrl+1,New Instance for Entry 1
-new instance for entry 10=Meta+Ctrl+0,Meta+Ctrl+0,New Instance for Entry 10
-new instance for entry 11=Meta+Ctrl+Z,Meta+Ctrl+Z,New Instance for Entry 11
-new instance for entry 12=none,Meta+Ctrl+X,New Instance for Entry 12
-new instance for entry 13=Meta+Ctrl+C,Meta+Ctrl+C,New Instance for Entry 13
-new instance for entry 14=Meta+Ctrl+V,Meta+Ctrl+V,New Instance for Entry 14
-new instance for entry 15=Meta+Ctrl+B,Meta+Ctrl+B,New Instance for Entry 15
-new instance for entry 16=Meta+Ctrl+N,Meta+Ctrl+N,New Instance for Entry 16
-new instance for entry 17=Meta+Ctrl+M,Meta+Ctrl+M,New Instance for Entry 17
-new instance for entry 18=Meta+Ctrl+\\,,Meta+Ctrl+\\,,New Instance for Entry 18
-new instance for entry 19=Meta+Ctrl+.,Meta+Ctrl+.,New Instance for Entry 19
-new instance for entry 2=Meta+Ctrl+2,Meta+Ctrl+2,New Instance for Entry 2
-new instance for entry 3=Meta+Ctrl+3,Meta+Ctrl+3,New Instance for Entry 3
-new instance for entry 4=Meta+Ctrl+4,Meta+Ctrl+4,New Instance for Entry 4
-new instance for entry 5=Meta+Ctrl+5,Meta+Ctrl+5,New Instance for Entry 5
-new instance for entry 6=Meta+Ctrl+6,Meta+Ctrl+6,New Instance for Entry 6
-new instance for entry 7=Meta+Ctrl+7,Meta+Ctrl+7,New Instance for Entry 7
-new instance for entry 8=Meta+Ctrl+8,Meta+Ctrl+8,New Instance for Entry 8
-new instance for entry 9=Meta+Ctrl+9,Meta+Ctrl+9,New Instance for Entry 9
-show latte global settings=none,Meta+W,Show Latte Global Settings
-show latte view=Meta+`,Meta+`,Show Latte Dock/Panel
-show view settings=Meta+A,Meta+A,Cycle Through Dock/Panel Settings Windows
 
 [mediacontrol]
 _k_friendly_name=Media Controller

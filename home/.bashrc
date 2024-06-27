@@ -15,14 +15,18 @@ alias middle-scroll='~/.local/bin/middle_click_to_scroll.sh'
 alias wreboot='sudo efibootmgr -n 0003 && sudo reboot'
 # alias ls='exa --group-directories-first'
 alias ls='lsd --group-directories-first'
+alias ll='lsd -la'
 alias cat='bat'
 alias pn='pnpm'
 alias reset-kdeconnect='killall kdeconnectd ; kdeconnect-cli --refresh'
+alias ..='cd ..'
+alias grep='grep --color=always'
 
 source /usr/share/nvm/init-nvm.sh
 
 # Neovim config switcher
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+alias nvs="NVIM_APPNAME=LazyVim nvim"
 alias vi="nvim"
 alias ai="gh copilot suggest"
 alias aix="gh copilot explain"
@@ -43,7 +47,7 @@ function nvims() {
 	fi
 	NVIM_APPNAME=$selected nvim "$@"
 }
-alias nvs=nvims
+alias nvim-all=nvims
 
 # function nvims() {
 # 	items=("LazyVim" "default")
@@ -58,6 +62,12 @@ alias nvs=nvims
 # 	fi
 # 	NVIM_APPNAME=$config nvim $@
 # }
+
+# Auto-ls when cd-ing into directories
+function cd () {
+  builtin cd "$@";
+  lsd -aG;
+}
 
 # Chatgpt API_KEY
 OPENAI_API_KEY=$(~/.local/bin/open-ai-key.sh)
@@ -108,3 +118,6 @@ function repo() {
 
 # setup zoxide
 eval "$(zoxide init bash --cmd cd)"
+
+# sst
+export PATH=/home/emmanuel/.sst/bin:$PATH
