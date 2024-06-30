@@ -78,9 +78,9 @@ function _update_ps1() {
 	PS1=$(powerline-shell $?)
 }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-	PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+# if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+# 	PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+# fi
 
 # Editor
 export EDITOR="NVIM_APPNAME=LazyVim /usr/bin/nvim"
@@ -113,11 +113,9 @@ function repo() {
 [ -f ~/.config/tabtab/bash/__tabtab.bash ] && . ~/.config/tabtab/bash/__tabtab.bash || true
 
 # autocompletion for eksctl and minikube
-. <(eksctl completion bash)
-. <(minikube completion bash) 
+# . <(eksctl completion bash)
+# . <(minikube completion bash) 
 
 # setup zoxide
 eval "$(zoxide init bash --cmd cd)"
 
-# sst
-export PATH=/home/emmanuel/.sst/bin:$PATH

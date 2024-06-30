@@ -5,6 +5,4 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 export PATH=$PATH:/home/emmanuel/go/bin
 export PATH=$PATH:/home/emmanuel/.local/bin
-
-# Start btop
-# exec kitty btop
+export PATH=$PATH:/home/emmanuel/.sst/bin
