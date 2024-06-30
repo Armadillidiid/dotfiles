@@ -1,5 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
+  enabled = false,
   config = function()
     require("telescope").load_extension("harpoon")
     require("harpoon").setup({

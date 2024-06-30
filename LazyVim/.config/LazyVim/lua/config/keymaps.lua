@@ -2,7 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local Util = require("lazyvim.util")
 local wk = require("which-key")
 
 local function map(mode, lhs, rhs, opts)
@@ -20,7 +19,9 @@ end
 map("i", "jk", "<Esc>", { noremap = true })
 
 -- Map "Ctrl+p" to Telescope Find files
-map("n", "<C-p>", Util.telescope("files"))
+map("n", "<C-p>", function()
+  require("telescope.builtin").find_files()
+end)
 
 -- Map "Ctrl+n" to Telescope Recent files
 map("n", "<c-n>", "<cmd>Telescope oldfiles<cr>")
@@ -138,6 +139,7 @@ wk.register({
   },
 }, { prefix = "<leader>" })
 
+-- Tabs
 wk.register({
   ["<leader><tab>"] = {
     name = "tabs",

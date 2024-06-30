@@ -1,4 +1,4 @@
 return {
-"Armadillidiid/leetcode.vim",
-enabled=false
+  "Armadillidiid/leetcode.vim",
+  enabled = false,
 }

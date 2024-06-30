@@ -2,7 +2,7 @@ vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#83a598" })
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
-  event = "InsertEnter",
+  build = ":Copilot auth",
   opts = {
     panel = { enabled = true },
     suggestion = {
@@ -19,6 +19,8 @@ return {
     },
     filetypes = {
       yaml = true,
+      markdown = true,
+      help = true,
     },
   },
 }

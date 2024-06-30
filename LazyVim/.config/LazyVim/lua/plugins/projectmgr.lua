@@ -1,6 +1,5 @@
 return {
   "charludo/projectmgr.nvim",
-  enabled = true,
   lazy = false, -- important!
   autogit = {
     enabled = false,
