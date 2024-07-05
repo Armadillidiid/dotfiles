@@ -21,18 +21,20 @@ alias pn='pnpm'
 alias reset-kdeconnect='killall kdeconnectd ; kdeconnect-cli --refresh'
 alias ..='cd ..'
 alias grep='grep --color=always'
+alias fz="fzf"
 
 source /usr/share/nvm/init-nvm.sh
 
 # Neovim config switcher
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 alias nvs="NVIM_APPNAME=LazyVim nvim"
-alias vi="nvim"
+alias vi="NVIM_APPNAME=nvim nvim"
 alias ai="gh copilot suggest"
 alias aix="gh copilot explain"
 alias save-session="~/.local/bin/save-kitty-session.sh"
 alias res-session="~/.local/bin/restore-kitty-session.sh"
-alias vpn="sudo openvpn --config ~/.openvpn/emmanuel.ovpn"
+alias vpn="nmcli con up uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
+alias vpn-d="nmcli con down uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 
 function nvims() {
 	items=$(
@@ -83,7 +85,8 @@ function _update_ps1() {
 # fi
 
 # Editor
-export EDITOR="NVIM_APPNAME=LazyVim /usr/bin/nvim"
+export EDITOR=nvim
+export NVIM_APPNAME=LazyVim
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -119,3 +122,8 @@ function repo() {
 # setup zoxide
 eval "$(zoxide init bash --cmd cd)"
 
+# Moar pager -- man
+export MOAR='--statusbar=bold --no-linenumbers -style catppuccin-mocha'
+export PAGER=/usr/bin/moar
+# export PAGER=nvimpager
+# export NVIMPAGER_NVIM=nvim

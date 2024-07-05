@@ -27,5 +27,5 @@
 )
 
 (defcfg
-  linux-dev /dev/input/event3
+  linux-dev /dev/input/event5
 )
