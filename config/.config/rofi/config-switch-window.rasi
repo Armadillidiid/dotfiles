@@ -1,0 +1,12 @@
+@import "~/.config/rofi/config.rasi" 
+
+/* ---- Entry ---- */
+entry {
+  width: 37%;
+  placeholder: "🪟 Search active windows";
+}
+
+/* ---- Listview ---- */
+listview {
+  columns: 1;
+}

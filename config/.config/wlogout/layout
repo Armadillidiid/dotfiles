@@ -1,0 +1,36 @@
+{
+    "label" : "shutdown",
+    "action" : "$HOME/.local/bin/power-lifecycle.sh shutdown",
+    "text" : "Shutdown",
+    "keybind" : "d"
+}
+{
+    "label" : "reboot",
+    "action" : "$HOME/.local/bin/power-lifecycle.sh reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
+{
+    "label" : "logout",
+    "action" : "$HOME/.local/bin/power-lifecycle.sh logout",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+{
+    "label" : "hibernate",
+    "action" : "$HOME/.local/bin/power-lifecycle.sh hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+{
+    "label" : "lock",
+    "action" : "$HOME/.local/bin/power-lifecycle.sh lock",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "suspend",
+    "action" : "$HOME/.local/bin/power-lifecycle.sh suspend",
+    "text" : "Suspend",
+    "keybind" : "s"
+}

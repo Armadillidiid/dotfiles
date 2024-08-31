@@ -6,5 +6,5 @@ debug
 foo.*
 *.log
 data
-Session.vim
-config/.config/lazygit/state.yml
+**/Session.vim
+**/lazygit/state.yml

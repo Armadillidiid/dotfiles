@@ -1,0 +1,26 @@
+@define-color text #CDD6F4;
+@define-color background rgba(30,30,46,0.25);
+@define-color background-alt #1E1E2E;
+@define-color cursor #CDD6F4;
+@define-color hovered #89B4FA;
+@define-color button-background #89DCEB;
+@define-color button-active #A6E3A1;
+@define-color border #F38BA8;
+@define-color urgent #B4BEFE;
+
+@define-color color0 #1E1E2E;
+@define-color color1 #F38BA8;
+@define-color color2 #A6E3A1;
+@define-color color3 #FAB387;
+@define-color color4 #89B4FA;
+@define-color color5 #CBA6F7;
+@define-color color6 #89DCEB;
+@define-color color7 #CDD6F4;
+@define-color color8 #585B70;
+@define-color color9 #F38BA8;
+@define-color color10 #A6E3A1;
+@define-color color11 #FAB387;
+@define-color color12 #89B4FA;
+@define-color color13 #CBA6F7;
+@define-color color14 #89DCEB;
+@define-color color15 #B4BEFE;

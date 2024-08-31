@@ -1,0 +1,11 @@
+[Unit]
+Description=Easytether
+
+[Service]
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
+Type=simple
+ExecStart=/usr/bin/easytether-usb -n
+Restart=no
+
+[Install]
+WantedBy=default.target

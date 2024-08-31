@@ -1,0 +1,14 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+[opener]
+play = [
+	{ run = 'mpv "$@"', orphan = true, for = "unix" },
+	{ run = 'mpv "%1"', orphan = true, for = "windows" },
+	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
+]
+
+# Close input by once Esc press
+[[input.prepend_keymap]]
+on   = [ "<Esc>" ]
+run  = "close"
+desc = "Cancel input"

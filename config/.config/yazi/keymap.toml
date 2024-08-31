@@ -1,0 +1,18 @@
+# Enter for directory, open for file
+# [[manager.prepend_keymap]]
+# on   = [ "l" ]
+# run  = "plugin --sync smart-enter"
+# desc = "Enter the child directory, or open the file"
+
+# Paste files without entering the directory
+[[manager.prepend_keymap]]
+on   = [ "p" ]
+run  = "plugin --sync smart-paste"
+desc = "Paste into the hovered directory or CWD"
+
+# Copy selected files to the system clipboard while yanking
+[[manager.prepend_keymap]]
+on  = [ "y" ]
+run = [ '''
+	shell 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list' --confirm
+''', "yank" ]
