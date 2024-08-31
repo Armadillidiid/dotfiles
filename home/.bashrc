@@ -17,6 +17,7 @@ alias wreboot='sudo efibootmgr -n 0003 && sudo reboot'
 alias ls='lsd --group-directories-first'
 alias ll='lsd -la'
 alias cat='bat'
+alias catx='bat --decorations=never'
 alias pn='pnpm'
 alias reset-kdeconnect='killall kdeconnectd ; kdeconnect-cli --refresh'
 alias ..='cd ..'
@@ -127,3 +128,6 @@ export MOAR='--statusbar=bold --no-linenumbers -style catppuccin-mocha'
 export PAGER=/usr/bin/moar
 # export PAGER=nvimpager
 # export NVIMPAGER_NVIM=nvim
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
