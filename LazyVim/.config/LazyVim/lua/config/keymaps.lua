@@ -163,3 +163,14 @@ map(
   '<cmd>lua vim.lsp.buf.code_action({apply = true, context = {only = {"source.addMissingImports.ts"}, diagnostics = {}}})<CR>',
   { noremap = true, silent = true, desc = "Add Missing Imports" }
 )
+
+
+-- Move Lines
+vim.keymap.del({"n", "i", "v"}, "<A-j>")
+vim.keymap.del({"n", "i", "v"}, "<A-k>")
+map("n", "<C-A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+map("n", "<C-A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })

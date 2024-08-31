@@ -1,9 +1,6 @@
 return {
   "jackMort/ChatGPT.nvim",
   event = "VeryLazy",
-  config = function()
-    require("chatgpt").setup()
-  end,
   dependencies = {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
@@ -29,8 +26,13 @@ return {
       loading_text = "Loading, please wait ...",
       question_sign = "", -- 🙂
       answer_sign = "ﮧ", -- 🤖
+      border_left_sign = "",
+      border_right_sign = "",
       max_line_length = 120,
       sessions_window = {
+        active_sign = "  ",
+        inactive_sign = "  ",
+        current_line_sign = "",
         border = {
           style = "rounded",
           text = {
@@ -55,7 +57,7 @@ return {
         select_session = "<Space>",
         rename_session = "r",
         delete_session = "d",
-        draft_message = "<C-d>",
+        draft_message = "<C-r>",
         edit_message = "e",
         delete_message = "d",
         toggle_settings = "<C-o>",
@@ -67,8 +69,8 @@ return {
     popup_layout = {
       default = "center",
       center = {
-        width = "80%",
-        height = "80%",
+        width = "90%",
+        height = "90%",
       },
       right = {
         width = "30%",
@@ -137,7 +139,7 @@ return {
       },
     },
     openai_params = {
-      model = "gpt-4o",
+      model = "gpt-4o-mini",
       frequency_penalty = 0,
       presence_penalty = 0,
       max_tokens = 4095,
@@ -146,7 +148,7 @@ return {
       n = 1,
     },
     openai_edit_params = {
-      model = "gpt-4o",
+      model = "gpt-4o-mini",
       frequency_penalty = 0,
       presence_penalty = 0,
       temperature = 0.2,
