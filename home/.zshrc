@@ -205,6 +205,11 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+# Fzf 
+export FZF_ALT_C_COMMAND="fd . --type d --max-depth 2"
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
 
 # ---- ZSH -----
 # Directory to store zinit and plugins
@@ -242,13 +247,13 @@ HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
 
 # Keybindings
 bindkey -e
@@ -270,7 +275,6 @@ bindkey '^n' history-search-forward
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':completion::complete:*' gain-privileges 1
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color $realpath'
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
