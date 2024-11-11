@@ -2,6 +2,8 @@ vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#83a598" })
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
+  enabled = true,
+  lazy = false,
   build = ":Copilot auth",
   opts = {
     panel = { enabled = true },

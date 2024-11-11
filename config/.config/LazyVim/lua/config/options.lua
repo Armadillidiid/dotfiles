@@ -25,3 +25,6 @@ vim.cmd("highlight LineNr guifg=#b4befe")
 
 -- Set this for ToggleTerm terminals to not be discarded when closed
 opt.hidden = true
+
+-- Line wrap
+opt.wrap = true
