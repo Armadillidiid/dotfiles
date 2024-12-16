@@ -23,6 +23,7 @@ return {
       "eslint-lsp",
       "graphql-language-service-cli",
       "hadolint",
+      "biome",
       "html-lsp",
       "json-lsp",
       "lemminx",
