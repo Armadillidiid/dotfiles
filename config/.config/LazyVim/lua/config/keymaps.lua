@@ -15,9 +15,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- Map "jk" to exit Insert mode
-map("i", "jk", "<Esc>", { noremap = true })
-
 -- Map "Ctrl+p" to Telescope Find files
 map("n", "<C-p>", function()
   require("telescope.builtin").find_files()
@@ -26,22 +23,12 @@ end)
 -- Map "Ctrl+n" to Telescope Recent files
 map("n", "<c-n>", "<cmd>Telescope oldfiles<cr>")
 
--- -- Toggle auto-save
--- map("n", "<leader>n", ":ASToggle<CR>", { desc = "Toggle auto-save" })
-
--- Map <leader><space> to search buffer
-map("n", "<leader><space>", ":lua require('telescope.builtin').buffers()<CR>", { desc = "Search buffer" })
-
--- Telescope project_root
-map(
-  "n",
-  "<leader>Pp",
-  ":lua require'telescope'.extensions.project.project{}<CR>",
-  { desc = "Telescope project", noremap = true, silent = true }
-)
-
--- ProjectMgr
-map("n", "<leader>PP", ":ProjectMgr<CR>", { desc = "ProjectMgr" })
+wk.add({
+  mode = { "n" },
+  { "<leader>P", group = "Projects" },
+  { "<leader>Pp", ":lua require'telescope'.extensions.project.project{}<CR>", desc = "Telescope project" },
+  { "<leader>PP", ":ProjectMgr<CR>", desc = "ProjectMgr" },
+})
 
 -- ChatGPT mapping to open chat
 map("n", "<leader>cc", ":ChatGPT<CR>", { desc = "ChatGPT" })
@@ -53,16 +40,11 @@ map("n", "<leader>cc", ":ChatGPT<CR>", { desc = "ChatGPT" })
 --   ":Chat refine this code by identifying and correcting any errors or bugs that may be present in the following snippet<CR>",
 --   { desc = "ChatGPTProblem" }
 -- )
-wk.register({
-  ["<leader>c"] = {
-    name = "code",
-    p = {
-      ":Chat fix<CR>",
-      "ChatGPTProblem",
-    },
-  },
-}, {
+wk.add({
+  "<leader>cp",
+  ":Chat fix<CR>",
   mode = "v",
+  desc = "code",
 })
 
 -- Leetcode keymaps
@@ -88,25 +70,6 @@ vim.api.nvim_set_keymap(
 -- Navbuddy
 map("n", "<leader>nv", ":Navbuddy<CR>", { desc = "Navbuddy" })
 
--- Copilot
-wk.register({
-  ["<leader>cC"] = {
-    name = "Copilot",
-    d = { ":Copilot disable<CR>", "disable" },
-    e = { ":Copilot enable<CR>", "enable" },
-    s = { ":Copilot status<CR>", "status" },
-  },
-})
-
--- Ugaterm
-wk.register({
-  t = {
-    name = "ugaterm",
-    t = { ":UgatermOpen<CR>", "UgatermOpen" },
-    d = { "<cmd>UgatermHide<CR>", "UgatermHide" },
-  },
-}, { prefix = "<leader>" })
-
 -- Telescope undo
 map("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Telescope undo" })
 
@@ -129,23 +92,21 @@ map("n", "gw", "*N", { noremap = true, silent = true })
 -- end, { desc = "Lazygit (cwd dir)" })
 
 -- Harpoon
-wk.register({
-  h = {
-    name = "harpoon",
-    x = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Harpoon Mark" },
-    n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Harpoon Nav Next" },
-    p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Harpoon Nav Prev" },
-    m = { ":Telescope harpoon marks<CR>", "Harpoon Marks" },
-  },
-}, { prefix = "<leader>" })
+-- wk.register({
+--   h = {
+--     name = "harpoon",
+--     x = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Harpoon Mark" },
+--     n = { "<cmd>lua require('harpoon.ui').nav_next()<CR>", "Harpoon Nav Next" },
+--     p = { "<cmd>lua require('harpoon.ui').nav_prev()<CR>", "Harpoon Nav Prev" },
+--     m = { ":Telescope harpoon marks<CR>", "Harpoon Marks" },
+--   },
+-- }, { prefix = "<leader>" })
 
 -- Tabs
-wk.register({
-  ["<leader><tab>"] = {
-    name = "tabs",
-    h = { "<cmd>tabprev<CR>", "Previous tab" },
-    l = { "<cmd>tabnext<CR>", "Next tab" },
-  },
+wk.add({
+  group = "tabs",
+  { "<leader><tab>h", "<cmd>tabprev<CR>", desc = "Previous tab" },
+  { "<leader><tab>l", "<cmd>tabnext<CR>", desc = "Next tab" },
 })
 
 map("n", "<leader>gB", "<cmd>GBrowse<CR>", { desc = "Browse In Web" })
@@ -164,10 +125,9 @@ map(
   { noremap = true, silent = true, desc = "Add Missing Imports" }
 )
 
-
 -- Move Lines
-vim.keymap.del({"n", "i", "v"}, "<A-j>")
-vim.keymap.del({"n", "i", "v"}, "<A-k>")
+vim.keymap.del({ "n", "i", "v" }, "<A-j>")
+vim.keymap.del({ "n", "i", "v" }, "<A-k>")
 map("n", "<C-A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
 map("n", "<C-A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
 map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
