@@ -149,7 +149,7 @@ function zj() {
     fi
 
     if [ -e "$workspace/.zellij.kdl" ]; then
-        zellij --layout "$workspace/.zellij.kdl" attach -c "$name"
+        zellij --layout "$workspace/.zellij.kdl" attach -f -c "$name"
     else
         zellij attach -c "$name"
     fi
@@ -291,3 +291,6 @@ eval "$(oh-my-posh init zsh -c $HOME/.config/oh-my-posh/omp.json)" # oh-my-posh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/emmanuel/.lmstudio/bin"

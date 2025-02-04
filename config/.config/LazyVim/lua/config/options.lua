@@ -28,3 +28,8 @@ opt.hidden = true
 
 -- Line wrap
 opt.wrap = true
+
+vim.g.lazyvim_picker = "fzf"
+
+-- if the completion engine supports the AI source, use that instead of inline suggestions
+vim.g.ai_cmp = false

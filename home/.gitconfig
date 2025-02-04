@@ -13,3 +13,5 @@
 	editor = NVIM_APPNAME=LazyVim nvim
 [fetch]
 	prune = true
+[pull]
+	rebase = true

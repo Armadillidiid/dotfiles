@@ -212,7 +212,7 @@ plugins {
     cwd "/"
   }
   monocle location="file:~/.config/zellij/plugins/monocle"
-  zjstatusbar location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+  zjstatusbar location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
     format_left   "{mode}#[bg=#181926] {tabs}"
     format_center ""
     format_right  "#[bg=#181926,fg=#89b4fa]#[bg=#89b4fa,fg=#1e2030,bold] #[bg=#363a4f,fg=#89b4fa,bold] {session} #[bg=#181926,fg=#363a4f,bold]"

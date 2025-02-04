@@ -18,40 +18,16 @@ return {
     keys[#keys + 1] = { "<leader>cC", false }
   end,
   opts = {
-    -- options for vim.diagnostic.config()
-    diagnostics = {
-      underline = true,
-      update_in_insert = false,
-      virtual_text = { spacing = 4, prefix = "●" },
-      severity_sort = true,
-    },
-    -- Automatically format on save
-    -- options for vim.lsp.buf.format
-    -- `bufnr` and `filter` is handled by the LazyVim formatter,
-    -- but can be also overridden when specified
-    format = {
-      formatting_options = nil,
-      timeout_ms = nil,
-    },
-    -- LSP Server Settings
-    ---@type lspconfig.options
     servers = {
-      jsonls = {},
-      lua_ls = {
-        -- mason = false, -- set to false if you don't want this server to be installed with mason
+      tailwindcss = {
         settings = {
-          Lua = {
-            workspace = {
-              checkThirdParty = false,
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
           tailwindCSS = {
             experimental = {
               classRegex = {
-                classRegex = { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                { "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "([a-zA-Z0-9\\-:]+)" },
               },
             },
           },

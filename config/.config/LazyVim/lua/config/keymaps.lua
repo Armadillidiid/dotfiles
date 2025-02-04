@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 local wk = require("which-key")
+local luasnip = require('luasnip')
 
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
@@ -15,20 +16,20 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
--- Map "Ctrl+p" to Telescope Find files
+-- Map "Ctrl+p" to Find files
 map("n", "<C-p>", function()
-  require("telescope.builtin").find_files()
+  require("fzf-lua").files()
 end)
 
--- Map "Ctrl+n" to Telescope Recent files
-map("n", "<c-n>", "<cmd>Telescope oldfiles<cr>")
+-- Map "Ctrl+n" to Recent files
+map("n", "<c-n>", ":lua require('fzf-lua').oldfiles()<CR>")
 
-wk.add({
-  mode = { "n" },
-  { "<leader>P", group = "Projects" },
-  { "<leader>Pp", ":lua require'telescope'.extensions.project.project{}<CR>", desc = "Telescope project" },
-  { "<leader>PP", ":ProjectMgr<CR>", desc = "ProjectMgr" },
-})
+-- wk.add({
+--   mode = { "n" },
+--   { "<leader>P", group = "Projects" },
+--   { "<leader>Pp", ":lua require'telescope'.extensions.project.project{}<CR>", desc = "Telescope project" },
+--   { "<leader>PP", ":ProjectMgr<CR>", desc = "ProjectMgr" },
+-- })
 
 -- ChatGPT mapping to open chat
 map("n", "<leader>cc", ":ChatGPT<CR>", { desc = "ChatGPT" })
@@ -59,18 +60,18 @@ map("n", "<leader>Li", ":Leet info<cr>", { desc = "Info" })
 map("n", "<leader>Lp", ":Leet list<cr>", { desc = "Problem Picker" })
 map("n", "<leader>Lu", ":Leet last_submit<cr>", { desc = "Previous submitted" })
 
--- Telescope browse
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>fw",
-  ":lua require('telescope').extensions.file_browser.file_browser({ path = vim.fn.expand('%:p:h'), select_buffer = true })<CR>",
-  { noremap = true, silent = true, desc = "File browse" }
-)
+-- -- Browse Files
+-- vim.api.nvim_set_keymap(
+--   "n",
+--   "<leader>fw",
+--   ":lua require('telescope').extensions.file_browser.file_browser({ path = vim.fn.expand('%:p:h'), select_buffer = true })<CR>",
+--   { noremap = true, silent = true, desc = "File browse" }
+-- )
 
 -- Navbuddy
 map("n", "<leader>nv", ":Navbuddy<CR>", { desc = "Navbuddy" })
 
--- Telescope undo
+-- Undo Changes Picker
 map("n", "<leader>su", "<cmd>Telescope undo<cr>", { desc = "Telescope undo" })
 
 -- Trouble references
@@ -134,3 +135,7 @@ map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+
+-- Luasnip
+map({"i", "s"}, "<c-j>", function() luasnip.jump(1) end, {silent = true})
+map({"i", "s"}, "<c-k>", function() luasnip.jump(-1) end, {silent = true})
