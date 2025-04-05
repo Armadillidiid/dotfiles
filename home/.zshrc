@@ -44,6 +44,7 @@ alias vpnd="nmcli con down uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 # AI
 alias ghca=$scripts/gh-copilot-ask.sh
 alias ghce=$scripts/gh-copilot-explain.sh
+alias reset-mouse='sudo sh -c "echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/unbind; sleep 0.2; echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/bind"'
 
 # Extract files
 function ex () {
