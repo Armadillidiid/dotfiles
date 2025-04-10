@@ -114,14 +114,21 @@ function dev() {
     local name="$1"
     local directory
 
+    # If no name is provided, prompt user to select a directory
     if [ -z "$name" ]; then
         directory=$(ghq list | fzf) || return
-        [ -z "$directory" ] && cd - || cd "$(pwd)/ghq/$directory" || return
+        
+        if [ -n "$directory" ]; then
+            cd "$HOME/ghq/$directory" || return
+        else
+            return
+        fi
     fi
 
-    [ -z "$name" ] && return
-
-    [ "$(pwd)" != "$(pwd)/ghq/$directory" ] && cd "$(pwd)/ghq/$directory" || return
+    # If a name is provided, check if we are already in the correct directory
+    if [ "$name" != "$directory" ]; then
+        cd "$HOME/ghq/$directory" || return
+    fi
 }
 
 # This function navigates to a specified workspace, or allows the user to select one if not specified.

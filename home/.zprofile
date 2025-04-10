@@ -30,3 +30,5 @@ export PAGER=/usr/bin/moar
 
 # Others
 export OPENAI_API_KEY=$($HOME/.local/bin/open-ai-key.sh)
+
+export GHQ_ROOT = "$HOME/ghq"
