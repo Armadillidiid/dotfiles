@@ -51,5 +51,29 @@ return {
       max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
       --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
     },
+    cursor_applying_provider = "groq", -- In this example, use Groq for applying, but you can also use any provider you want.
+    behaviour = {
+      enable_cursor_planning_mode = true, -- enable cursor planning mode!
+    },
+    vendors = {
+      groq = { -- define groq provider
+        __inherited_from = "openai",
+        api_key_name = "GROQ_API_KEY",
+        endpoint = "https://api.groq.com/openai/v1/",
+        model = "llama-3.3-70b-versatile",
+        max_completion_tokens = 65536,
+      },
+    },
+    rag_service = {
+      enabled = false, -- Enables the RAG service
+      host_mount = os.getenv("HOME"), -- Host mount path for the rag service
+      provider = "openai", -- The provider to use for RAG service (e.g. openai or ollama)
+      llm_model = "", -- The LLM model to use for RAG service
+      embed_model = "", -- The embedding model to use for RAG service
+      endpoint = "https://api.openai.com/v1", -- The API endpoint for RAG service
+    },
+    mappings = {
+      ask = "<leader>aA",
+    },
   },
 }
