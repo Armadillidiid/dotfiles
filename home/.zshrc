@@ -7,7 +7,7 @@ scripts="$HOME/.local/bin"
 
 # Reboot to Windows
 BOOT_NUMBER=$($scripts/get-efi-boot-number.sh "Windows Boot Manager")
-alias wreboot='sudo efibootmgr -n $BOOT_NUMBER'
+alias wreboot='sudo efibootmgr -n $BOOT_NUMBER && systemctl reboot'
 
 alias open='xdg-open'
 alias reset-network=$scripts/reset-network.sh
@@ -161,7 +161,6 @@ function zj() {
     else
         zellij attach -c "$name"
     fi
-
 }
 
 # Zellij
