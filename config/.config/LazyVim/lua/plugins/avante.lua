@@ -9,7 +9,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
-    "echasnovski/mini.pick", -- for file_selector provider mini.pick
+    "nvim-mini/mini.pick", -- for file_selector provider mini.pick
     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
     "ibhagwan/fzf-lua", -- for file_selector provider fzf
@@ -42,27 +42,30 @@ return {
     },
   },
   opts = {
+    -- Migrated to new provider configuration format
     provider = "openai",
-    openai = {
-      endpoint = "https://api.openai.com/v1",
-      model = "gpt-4o-mini",
-      timeout = 30000,
-      temperature = 0,
-      max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-    },
-    cursor_applying_provider = "groq", -- In this example, use Groq for applying, but you can also use any provider you want.
-    behaviour = {
-      enable_cursor_planning_mode = true, -- enable cursor planning mode!
-    },
-    vendors = {
-      groq = { -- define groq provider
+    cursor_applying_provider = "groq", -- Use Groq for applying
+    
+    -- New providers table (migrated from top-level openai and vendors.groq)
+    providers = {
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4o-mini",
+        timeout = 30000,
+        max_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+        --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      },
+      groq = {
         __inherited_from = "openai",
         api_key_name = "GROQ_API_KEY",
         endpoint = "https://api.groq.com/openai/v1/",
         model = "llama-3.3-70b-versatile",
-        max_completion_tokens = 65536,
+        max_tokens = 65536, -- migrated from max_completion_tokens
       },
+    },
+    
+    behaviour = {
+      enable_cursor_planning_mode = true, -- enable cursor planning mode!
     },
     rag_service = {
       enabled = false, -- Enables the RAG service

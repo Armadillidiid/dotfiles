@@ -25,7 +25,7 @@ export NVIM_APPNAME=LazyVim
 
 # Pager
 export MOAR='--statusbar=bold --no-linenumbers -style catppuccin-mocha --quit-if-one-screen'
-export PAGER=/usr/bin/moar
+export PAGER=/usr/bin/moor
 # export NVIMPAGER_NVIM=nvim
 
 # Others
