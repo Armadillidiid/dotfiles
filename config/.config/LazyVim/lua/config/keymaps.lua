@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 local wk = require("which-key")
-local luasnip = require('luasnip')
+local luasnip = require("luasnip")
 
 local function map(mode, lhs, rhs, opts)
   local keys = require("lazy.core.handler").handlers.keys
@@ -137,5 +137,42 @@ map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Luasnip
-map({"i", "s"}, "<c-j>", function() luasnip.jump(1) end, {silent = true})
-map({"i", "s"}, "<c-k>", function() luasnip.jump(-1) end, {silent = true})
+map({ "i", "s" }, "<c-j>", function()
+  luasnip.jump(1)
+end, { silent = true })
+map({ "i", "s" }, "<c-k>", function()
+  luasnip.jump(-1)
+end, { silent = true })
+
+-- Duplicate & comment line below/above
+vim.keymap.set("n", "yp", "yypgcck^", { remap = true, silent = true, desc = "Duplicate & comment original below" })
+vim.keymap.set("n", "yP", "yyPgccj^", { remap = true, silent = true, desc = "Duplicate & comment original above" })
+
+-- Jump to start/end of line in insert mode
+vim.keymap.set("i", "<C-a>", "<C-o>^", { desc = "Start of line" })
+vim.keymap.set("i", "<C-e>", "<End>", { desc = "End of line" })
+
+-- Delete upto cursor in insert mode
+-- vim.keymap.set("i", "<C-k>", "<C-o>d$", { desc = "Delete to end of line" }) -- conflicts LSP signature help
+
+-- Replace word under cursor globally
+vim.keymap.set(
+  "n",
+  "<leader>sx",
+  ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+  { desc = "Replace word globally" }
+)
+
+-- Unbind default tab keymaps
+-- vim.keymap.del("n", "<leader><tab>f") -- Go to first tab
+
+-- Duplicate current buffer in new tab
+vim.keymap.set("n", "<leader><tab>b", "<cmd>tab split<CR>", { desc = "Duplicate buffer" })
+
+-- Go to Definition in new tab
+vim.keymap.set("n", "gt", "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition in new Tab" })
+vim.keymap.set("n", "gb", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "Go to Definition in new Split" })
+
+-- Recenter screen on j/k movements
+vim.keymap.set('n', '<C-j>', 'jzz', { desc = 'Move down and recenter' })
+vim.keymap.set('n', '<C-k>', 'kzz', { desc = 'Move up and recenter' })

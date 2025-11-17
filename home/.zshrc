@@ -30,6 +30,7 @@ alias ghqp="ghq get -p"
 alias ghql="ghq list"
 alias lz="lazygit"
 alias lzd="lazydocker"
+alias oc="opencode"
 
 # search content with ripgrep
 alias rg="rg --sort path"

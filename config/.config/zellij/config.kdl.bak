@@ -1,0 +1,419 @@
+keybinds clear-defaults=true  {
+  normal  {
+    bind "Alt g" { SwitchToMode "Locked"; }
+    bind "Alt d" { CloseFocus; }
+    bind "Alt q" { Detach; }
+    bind "Alt n" { NewPane; }
+    bind "Alt y" { ToggleTab; }
+    bind "Alt h" "Alt Left" { MoveFocus "Left"; }
+    bind "Alt l" "Alt Right" { MoveFocus "Right"; }
+    bind "Alt j" "Alt Down" { MoveFocus "Down"; }
+    bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+    bind "Alt =" "Alt +" { Resize "Increase"; }
+    bind "Alt -" { Resize "Decrease"; }
+    bind "Alt w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+    bind "Alt 1" { GoToTab 1; }
+    bind "Alt 2" { GoToTab 2; }
+    bind "Alt 3" { GoToTab 3; }
+    bind "Alt 4" { GoToTab 4; }
+    bind "Alt 5" { GoToTab 5; }
+    bind "Alt 6" { GoToTab 6; }
+    bind "Alt 7" { GoToTab 7; }
+    bind "Alt 8" { GoToTab 8; }
+    bind "Alt 9" { GoToTab 9; }
+    bind "Alt [" { PreviousSwapLayout; }
+    bind "Alt ]" { NextSwapLayout; }
+    // bind "Alt e" {
+    //   LaunchOrFocusPlugin "strider" {
+    //     floating true
+    //   };
+    // };
+    bind "Alt f" {
+      LaunchOrFocusPlugin "monocle" {
+        floating true
+      }
+    }
+    bind "Alt o" {
+      LaunchOrFocusPlugin "session-manager" {
+        floating true
+        move_to_focused_tab true
+      };
+      SwitchToMode "Normal"
+    }
+  }
+  shared  {
+    bind "" { Quit; }
+    bind "" { GoToPreviousTab; }
+    bind "" { GoToNextTab; }
+    bind "" { NewTab; }
+    bind "" { NewTab {
+      cwd "~/"
+    };
+  }
+  bind "" { MoveTab "Left"; }
+  bind "" { MoveTab "Right"; }
+  bind "" { GoToTab 1; }
+  bind "" { GoToTab 2; }
+  bind "" { GoToTab 3; }
+  bind "" { GoToTab 4; }
+  bind "" { GoToTab 5; }
+  bind "" { GoToTab 6; }
+  bind "" { GoToTab 7; }
+  bind "" { GoToTab 8; }
+  bind "" { GoToTab 9; }
+  bind "" { CloseTab; }
+}
+locked {
+  bind "Alt g" { SwitchToMode "Normal"; }
+  bind "Alt x" { Quit; }
+}
+resize {
+  bind "Alt r" { SwitchToMode "Normal"; }
+  bind "h" "Left" { Resize "Increase Left"; }
+  bind "j" "Down" { Resize "Increase Down"; }
+  bind "k" "Up" { Resize "Increase Up"; }
+  bind "l" "Right" { Resize "Increase Right"; }
+  bind "H" { Resize "Decrease Left"; }
+  bind "J" { Resize "Decrease Down"; }
+  bind "K" { Resize "Decrease Up"; }
+  bind "L" { Resize "Decrease Right"; }
+  bind "=" "+" { Resize "Increase"; }
+  bind "-" { Resize "Decrease"; }
+}
+pane {
+  bind "Alt p" { SwitchToMode "Normal"; }
+  bind "h" "Left" { MoveFocus "Left"; }
+  bind "l" "Right" { MoveFocus "Right"; }
+  bind "j" "Down" { MoveFocus "Down"; }
+  bind "k" "Up" { MoveFocus "Up"; }
+  bind "p" { SwitchFocus; }
+  bind "n" { NewPane; SwitchToMode "Normal"; }
+  bind "b" { NewPane "Down"; SwitchToMode "Normal"; }
+  bind "r" { NewPane "Right"; SwitchToMode "Normal"; }
+  bind "d" { CloseFocus; SwitchToMode "Normal"; }
+  bind "m" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
+  // bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
+  bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+  bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
+  // bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+}
+move {
+  bind "Alt m" { SwitchToMode "Normal"; }
+  bind "n" "Tab" { MovePane; }
+  bind "p" { MovePaneBackwards; }
+  bind "h" "Left" { MovePane "Left"; }
+  bind "j" "Down" { MovePane "Down"; }
+  bind "k" "Up" { MovePane "Up"; }
+  bind "l" "Right" { MovePane "Right"; }
+}
+tab {
+  bind "Alt t" { SwitchToMode "Normal"; }
+  bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
+  bind "h" "Left" "Up" "k" { GoToPreviousTab; }
+  bind "l" "Right" "Down" "j" { GoToNextTab; }
+  bind "n" { NewTab; }
+  bind "d" { CloseTab; SwitchToMode "Normal"; }
+  bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
+  bind "b" { BreakPane; SwitchToMode "Normal"; }
+  bind "]" { BreakPaneRight; SwitchToMode "Normal"; }
+  bind "[" { BreakPaneLeft; SwitchToMode "Normal"; }
+  bind "1" { GoToTab 1; SwitchToMode "Normal"; }
+  bind "2" { GoToTab 2; SwitchToMode "Normal"; }
+  bind "3" { GoToTab 3; SwitchToMode "Normal"; }
+  bind "4" { GoToTab 4; SwitchToMode "Normal"; }
+  bind "5" { GoToTab 5; SwitchToMode "Normal"; }
+  bind "6" { GoToTab 6; SwitchToMode "Normal"; }
+  bind "7" { GoToTab 7; SwitchToMode "Normal"; }
+  bind "8" { GoToTab 8; SwitchToMode "Normal"; }
+  bind "9" { GoToTab 9; SwitchToMode "Normal"; }
+  bind "Tab" { ToggleTab; }
+}
+scroll {
+  bind "Alt s" { SwitchToMode "Normal"; }
+  bind "e" { EditScrollback; SwitchToMode "Normal"; }
+  bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
+  bind "Alt c" { ScrollToBottom; SwitchToMode "Normal"; }
+  bind "j" "Down" { ScrollDown; }
+  bind "k" "Up" { ScrollUp; }
+  bind "Alt f" "PageDown" "Right" "l" { PageScrollDown; }
+  bind "Alt b" "PageUp" "Left" "h" { PageScrollUp; }
+  bind "d" { HalfPageScrollDown; }
+  bind "u" { HalfPageScrollUp; }
+}
+search {
+  bind "Alt s" { SwitchToMode "Normal"; }
+  bind "Alt c" { ScrollToBottom; SwitchToMode "Normal"; }
+  bind "j" "Down" { ScrollDown; }
+  bind "k" "Up" { ScrollUp; }
+  bind "Alt f" "PageDown" "Right" "l" { PageScrollDown; }
+  bind "Alt b" "PageUp" "Left" "h" { PageScrollUp; }
+  bind "d" { HalfPageScrollDown; }
+  bind "u" { HalfPageScrollUp; }
+  bind "n" { Search "down"; }
+  bind "p" { Search "up"; }
+  bind "c" { SearchToggleOption "CaseSensitivity"; }
+  bind "w" { SearchToggleOption "Wrap"; }
+  bind "o" { SearchToggleOption "WholeWord"; }
+}
+entersearch {
+  bind "Alt c" "Esc" { SwitchToMode "Scroll"; }
+  bind "Enter" { SwitchToMode "Search"; }
+}
+renametab {
+  bind "Alt c" { SwitchToMode "Normal"; }
+  bind "Esc" { UndoRenameTab; SwitchToMode "Tab"; }
+}
+renamepane  {
+  bind "Alt c" { SwitchToMode "Normal"; }
+  bind "Esc" { UndoRenamePane; SwitchToMode "Pane"; }
+}
+session {
+  bind "Alt o" { SwitchToMode "Normal"; }
+  bind "d" { Detach; }
+  bind "w" {
+    LaunchOrFocusPlugin "session-manager" {
+      floating true
+      move_to_focused_tab true
+    };
+    SwitchToMode "Normal"
+  }
+}
+
+shared_except "normal" "locked" {
+  bind "Enter" "Esc" { SwitchToMode "Normal"; }
+}
+shared_except "entersearch" "locked" {
+  bind "Alt /" { SwitchToMode "entersearch"; }
+}
+shared_except "pane" "locked" {
+  bind "Alt p" { SwitchToMode "Pane"; }
+}
+shared_except "resize" "locked" {
+  bind "Alt r" { SwitchToMode "Resize"; }
+}
+shared_except "scroll" "locked" {
+  bind "Alt s" { SwitchToMode "Scroll"; }
+}
+// shared_except "session" "locked" {
+//   bind "Alt o" { SwitchToMode "Session"; }
+// }
+shared_except "tab" "locked" {
+  bind "Alt t" { SwitchToMode "Tab"; }
+}
+shared_except "move" "locked" {
+  bind "Alt m" { SwitchToMode "Move"; }
+}
+}
+
+plugins {
+  tab-bar location="zellij:tab-bar"
+  status-bar location="zellij:status-bar"
+  strider location="zellij:strider" {
+  }
+  compact-bar location="zellij:compact-bar"
+  session-manager location="zellij:session-manager"
+  welcome-screen location="zellij:session-manager" {
+    welcome_screen true
+  }
+  filepicker location="zellij:strider" {
+    cwd "/"
+  }
+  monocle location="file:~/.config/zellij/plugins/monocle"
+  zjstatusbar location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
+    format_left   "{mode}#[bg=#181926] {tabs}"
+    format_center ""
+    format_right  "#[bg=#181926,fg=#89b4fa]#[bg=#89b4fa,fg=#1e2030,bold] #[bg=#363a4f,fg=#89b4fa,bold] {session} #[bg=#181926,fg=#363a4f,bold]"
+    format_space  "#[bg=#181926]"
+    format_hide_on_overlength "true"
+    format_precedence "crl"
+
+    border_enabled  "false"
+    border_char     "─"
+    border_format   "#[fg=#6C7086]{char}"
+    border_position "top"
+
+    mode_normal        "#[bg=#89b4fa,fg=#181926,bold] NORMAL#[bg=#181926,fg=#89b4fa]█"
+    mode_locked        "#[bg=#6e738d,fg=#181926,bold] LOCKED #[bg=#181926,fg=#6e738d]█"
+    mode_resize        "#[bg=#f38ba8,fg=#181926,bold] RESIZE#[bg=#181926,fg=#f38ba8]█"
+    mode_pane          "#[bg=#89b4fa,fg=#181926,bold] PANE#[bg=#181926,fg=#89b4fa]█"
+    mode_tab           "#[bg=#b4befe,fg=#181926,bold] TAB#[bg=#181926,fg=#b4befe]█"
+    mode_scroll        "#[bg=#f9e2af,fg=#181926,bold] SCROLL#[bg=#181926,fg=#f9e2af]█"
+    mode_enter_search  "#[bg=#a6da95,fg=#181926,bold] ENT-SEARCH#[bg=#181926,fg=#a6da95]█"
+    mode_search        "#[bg=#8aadf4,fg=#181926,bold] SEARCHARCH#[bg=#181926,fg=#8aadf4]█"
+    mode_rename_tab    "#[bg=#b4befe,fg=#181926,bold] RENAME-TAB#[bg=#181926,fg=#b4befe]█"
+    mode_rename_pane   "#[bg=#89b4fa,fg=#181926,bold] RENAME-PANE#[bg=#181926,fg=#89b4fa]█"
+    mode_session       "#[bg=#74c7ec,fg=#181926,bold] SESSION#[bg=#181926,fg=#74c7ec]█"
+    mode_move          "#[bg=#f5c2e7,fg=#181926,bold] MOVE#[bg=#181926,fg=#f5c2e7]█"
+    mode_prompt        "#[bg=#8aadf4,fg=#181926,bold] PROMPT#[bg=#181926,fg=#8aadf4]█"
+    mode_tmux          "#[bg=#f5a97f,fg=#181926,bold] TMUX#[bg=#181926,fg=#f5a97f]█"
+
+    // formatting for inactive tabs
+    tab_normal              "#[bg=#181926,fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+    tab_normal_fullscreen   "#[bg=#181926,fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+    tab_normal_sync         "#[bg=#181926,fg=#89b4fa]█#[bg=#89b4fa,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#89b4fa,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+
+    // formatting for the current active tab
+    tab_active              "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{floating_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+    tab_active_fullscreen   "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{fullscreen_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+    tab_active_sync         "#[bg=#181926,fg=#fab387]█#[bg=#fab387,fg=#1e2030,bold]{index} #[bg=#363a4f,fg=#fab387,bold] {name}{sync_indicator}#[bg=#181926,fg=#363a4f,bold]█"
+
+    // separator between the tabs
+    tab_separator           "#[bg=#181926] "
+
+    // indicators
+    tab_sync_indicator       " "
+    tab_fullscreen_indicator " 󰊓"
+    tab_floating_indicator   " 󰹙"
+
+    command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+    command_git_branch_format      "#[fg=blue] {stdout} "
+    command_git_branch_interval    "10"
+    command_git_branch_rendermode  "static"
+
+    datetime        "#[fg=#6C7086,bold] {format} "
+    datetime_format "%A, %d %b %Y %H:%M"
+    datetime_timezone "Africa/Lagos"
+  }
+}
+
+// Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
+// eg. when terminal window with an active zellij session is closed
+// Options:
+//   - detach (Default)
+//   - quit
+//
+// on_force_close "quit"
+
+//  Send a request for a simplified ui (without arrow fonts) to plugins
+//  Options:
+//    - true
+//    - false (Default)
+//
+// simplified_ui true
+
+// Choose the path to the default shell that zellij will use for opening new panes
+// Default: $SHELL
+// default_shell "zsh"
+
+// Choose the path to override cwd that zellij will use for opening new panes
+// default_cwd ""
+
+// Toggle between having pane frames around the panes
+// Options: - true (default) - false
+pane_frames false
+
+// Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
+// Options:
+//   - true (default)
+//   - false
+//
+// auto_layout true
+
+// Whether sessions should be serialized to the cache folder (including their tabs/panes, cwds and running commands) so that they can later be resurrected
+// Options:
+//   - true (default)
+//   - false
+//
+// session_serialization false
+
+// Whether pane viewports are serialized along with the session, default is false
+// Options:
+//   - true
+//   - false (default)
+// serialize_pane_viewport true
+
+// Scrollback lines to serialize along with the pane viewport when serializing sessions, 0
+// defaults to the scrollback size. If this number is higher than the scrollback size, it will
+// also default to the scrollback size. This does nothing if `serialize_pane_viewport` is not true.
+//
+// scrollback_lines_to_serialize 10000
+
+// Define color themes for Zellij
+// For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
+// Once these themes are defined, one of them should to be selected in the "theme" section of this file
+
+// Choose the theme that is specified in the themes section.
+// Default: default
+theme "catppuccin-mocha"
+
+// The name of the default layout to load on startup
+// Default: "default"
+// default_layout "compact"
+
+// Choose the mode that zellij uses when starting up.
+// Default: normal
+//
+// default_mode "locked"
+
+// Toggle enabling the mouse mode.
+// On certain configurations, or terminals this could
+// potentially interfere with copying text.
+// Options:
+//   - true (default)
+//   - false
+//
+// mouse_mode false
+
+// Configure the scroll back buffer size
+// This is the number of lines zellij stores for each pane in the scroll back
+// buffer. Excess number of lines are discarded in a FIFO fashion.
+// Valid values: positive integers
+// Default value: 10000
+//
+// scroll_buffer_size 10000
+
+// Provide a command to execute when copying text. The text will be piped to
+// the stdin of the program to perform the copy. This can be used with
+// terminal emulators which do not support the OSC 52 ANSI control sequence
+// that will be used by default if this option is not set.
+// Examples:
+//
+// copy_command "xclip -selection clipboard" // x11
+copy_command "wl-copy"                    // wayland
+// copy_command "pbcopy"                     // osx
+
+// Choose the destination for copied text
+// Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
+// Does not apply when using copy_command.
+// Options:
+//   - system (default)
+//   - primary
+//
+// copy_clipboard "primary"
+
+// Enable or disable automatic copy (and clear) of selection when releasing mouse
+// Default: true
+//
+// copy_on_select false
+
+// Path to the default editor to use to edit pane scrollbuffer
+// Default: $EDITOR or $VISUAL
+//
+// scrollback_editor "/usr/bin/vim"
+
+// When attaching to an existing session with other users,
+// should the session be mirrored (true)
+// or should each user have their own cursor (false)
+// Default: false
+//
+// mirror_session true
+
+// The folder in which Zellij will look for layouts
+//
+// layout_dir "/path/to/my/layout_dir"
+
+// The folder in which Zellij will look for themes
+//
+// theme_dir "/path/to/my/theme_dir"
+
+// Enable or disable the rendering of styled and colored underlines (undercurl).
+// May need to be disabled for certain unsupported terminals
+// Default: true
+//
+// styled_underlines false
+
+// Enable or disable writing of session metadata to disk (if disabled, other sessions might not know
+// metadata info on this session)
+// Default: false
+//
+// disable_session_metadata true
