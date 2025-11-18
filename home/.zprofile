@@ -33,5 +33,6 @@ export OPENAI_API_KEY=$($HOME/.local/bin/open-ai-key.sh)
 export GROQ_API_KEY=$($HOME/.local/bin/groq-api-key.sh)
 export TAVILY_API_KEY=$($HOME/.local/bin/tavily-api-key.sh)
 export ANTHROPIC_API_KEY=$($HOME/.local/bin/anthropic-api-key.sh)
+export FIGMA_API_KEY=$($HOME/.local/bin/figma-api-key.sh)
 
 export GHQ_ROOT="$HOME/ghq"

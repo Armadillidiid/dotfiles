@@ -1,6 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
+  "instructions": [
+    ".github/copilot-instructions.md",
+    ".github/instructions/*.md",
+    ".agents/*.md",
+    "~/.config/opencode/rules/*.md"
+  ],
   "keybinds": {
     "command_list": "ctrl+p,<leader>p"
   },
@@ -29,6 +35,16 @@
       "type": "remote",
       "url": "https://api.githubcopilot.com/mcp/",
       "enabled": false
+    },
+    "figma": {
+      "type": "local",
+      "command": [
+        "pnpm",
+        "dlx",
+        "figma-developer-mcp",
+        "--figma-api-key=$FIGMA_API_KEY",
+        "--stdio"
+      ]
     }
   }
 }

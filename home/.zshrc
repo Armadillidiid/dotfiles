@@ -31,6 +31,8 @@ alias ghql="ghq list"
 alias lz="lazygit"
 alias lzd="lazydocker"
 alias oc="opencode"
+alias q="tldr"
+alias d0t='cd ~/.dotfiles; zellij attach -c dotfiles'
 
 # search content with ripgrep
 alias rg="rg --sort path"
@@ -45,12 +47,12 @@ alias vpn="nmcli con up uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 alias vpnd="nmcli con down uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 
 # AI
-alias ghca=$scripts/gh-copilot-ask.sh
-alias ghce=$scripts/gh-copilot-explain.sh
+alias ask=$scripts/gh-copilot-ask.sh
+alias x=$scripts/gh-copilot-explain.sh
 alias reset-mouse='sudo sh -c "echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/unbind; sleep 0.2; echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/bind"'
 
 # Extract files
-function ex () {
+function extract () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
