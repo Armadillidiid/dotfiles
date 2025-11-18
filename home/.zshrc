@@ -33,6 +33,9 @@ alias lzd="lazydocker"
 alias oc="opencode"
 alias q="tldr"
 alias d0t='cd ~/.dotfiles; zellij attach -c dotfiles'
+alias rec='asciinema rec'
+alias play='asciinema play'
+alias j='jrnl'
 
 # search content with ripgrep
 alias rg="rg --sort path"
@@ -46,9 +49,9 @@ alias vi="NVIM_APPNAME=nvim nvim"
 alias vpn="nmcli con up uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 alias vpnd="nmcli con down uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 
-# AI
-alias ask=$scripts/gh-copilot-ask.sh
-alias x=$scripts/gh-copilot-explain.sh
+# AI - GitHub Copilot
+alias ask='gh copilot suggest -t shell'
+alias x='gh copilot explain -t shell'
 alias reset-mouse='sudo sh -c "echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/unbind; sleep 0.2; echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/bind"'
 
 # Extract files
@@ -282,6 +285,15 @@ bindkey '^n' history-search-forward
 # zle -N autosuggest-fetch-and-accept
 # bindkey '^[l' autosuggest-fetch-and-accept
 
+open-history-file() {
+    fc -W  # Write current history to file
+    $EDITOR "$HISTFILE" < /dev/tty
+    fc -R  # Reload history
+    zle reset-prompt
+}
+zle -N open-history-file
+bindkey '^z' open-history-file
+
 # Auto completion
 # zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -358,3 +370,11 @@ web2app-rm() {
 }
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# Ignore commands in history
+function zshaddhistory() {
+    [[ $1 == jrnl* ]] && return 1 
+    [[ $1 == j ]] && return 1 
+    
+    return 0
+}
