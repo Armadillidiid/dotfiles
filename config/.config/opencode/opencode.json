@@ -45,6 +45,18 @@
         "--figma-api-key=$FIGMA_API_KEY",
         "--stdio"
       ]
+    },
+    "sentry": {
+      "type": "local",
+      "command": [
+        "pnpm",
+        "dlx",
+        "@sentry/mcp-server@latest",
+        "--access-token=$SENTRY_PAT"
+      ],
+      "environment": {
+        "SENTRY_PAT": "{env:SENTRY_PAT}"
+      }
     }
   }
 }
