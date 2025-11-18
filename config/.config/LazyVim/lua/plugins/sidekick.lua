@@ -1,5 +1,6 @@
 return {
   "folke/sidekick.nvim",
+  optional = true,
   opts = {
     cli = {
       ---@class sidekick.cli.Mux
