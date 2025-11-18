@@ -28,11 +28,15 @@ export MOAR='--statusbar=bold --no-linenumbers -style catppuccin-mocha --quit-if
 export PAGER=/usr/bin/moor
 # export NVIMPAGER_NVIM=nvim
 
-# Others
-export OPENAI_API_KEY=$($HOME/.local/bin/open-ai-key.sh)
-export GROQ_API_KEY=$($HOME/.local/bin/groq-api-key.sh)
-export TAVILY_API_KEY=$($HOME/.local/bin/tavily-api-key.sh)
-export ANTHROPIC_API_KEY=$($HOME/.local/bin/anthropic-api-key.sh)
-export FIGMA_API_KEY=$($HOME/.local/bin/figma-api-key.sh)
+# GNU Pass
+export PASSWORD_STORE_DIR="$HOME/.dotfiles/password-store/.password-store"
+
+# Others - API Keys from GNU pass
+export OPENAI_API_KEY=$(pass api-keys/openai)
+export GROQ_API_KEY=$(pass api-keys/groq)
+export TAVILY_API_KEY=$(pass api-keys/tavily)
+export ANTHROPIC_API_KEY=$(pass api-keys/anthropic)
+export FIGMA_API_KEY=$(pass api-keys/figma)
+export SENTRY_API_KEY=$(pass api-keys/sentry)
 
 export GHQ_ROOT="$HOME/ghq"
