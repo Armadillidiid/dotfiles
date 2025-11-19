@@ -32,11 +32,11 @@ export PAGER=/usr/bin/moor
 export PASSWORD_STORE_DIR="$HOME/.dotfiles/password-store/.password-store"
 
 # Others - API Keys from GNU pass
-export OPENAI_API_KEY=$(pass api-keys/openai)
-export GROQ_API_KEY=$(pass api-keys/groq)
-export TAVILY_API_KEY=$(pass api-keys/tavily)
-export ANTHROPIC_API_KEY=$(pass api-keys/anthropic)
-export FIGMA_API_KEY=$(pass api-keys/figma)
-export SENTRY_API_KEY=$(pass api-keys/sentry)
+export OPENAI_API_KEY=$(pass api/openai)
+export GROQ_API_KEY=$(pass api/groq)
+export TAVILY_API_KEY=$(pass api/tavily)
+export ANTHROPIC_API_KEY=$(pass api/anthropic)
+export FIGMA_API_KEY=$(pass api/figma)
+export SENTRY_API_KEY=$(pass api/sentry)
 
 export GHQ_ROOT="$HOME/ghq"
