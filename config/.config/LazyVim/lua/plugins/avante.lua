@@ -58,7 +58,7 @@ return {
       },
       groq = {
         __inherited_from = "openai",
-        api_key_name = "GROQ_API_KEY",
+        api_key_name = "P_GROQ_API_KEY",
         endpoint = "https://api.groq.com/openai/v1/",
         model = "llama-3.3-70b-versatile",
         max_tokens = 65536, -- migrated from max_completion_tokens

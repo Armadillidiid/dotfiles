@@ -1,20 +1,21 @@
 [StreamInputs]
 inputDevice=bluez_input.D0:1B:49:9B:BA:47
-mostUsedPresets=Razer Blackshark V2 X
+mostUsedPresets=Razer BlackShark V2 X
 plugins=rnnoise#0
-usedPresets=Razer Blackshark V2 X:1
-visiblePage=pluginsPage
+usedPresets=Razer BlackShark V2 X:5
 visiblePlugin=rnnoise#0
 
 [StreamOutputs]
-mostUsedPresets=Galaxy Buds 2,Razer
+mostUsedPresets=Galaxy Buds 2,Razer BlackShark V2 X
 outputDevice=bluez_output.D0_1B_49_9B_BA_47.1
 plugins=equalizer#0
-usedPresets=Galaxy Buds 2:4,Razer:2
-visiblePage=pluginsPage
+usedPresets=Razer BlackShark V2 X:6,Galaxy Buds 2:11
 visiblePlugin=equalizer#0
 
 [Window]
-height=1029
-visiblePage=inputPage
-width=942
+height=1008
+lastLoadedInputPreset=Razer BlackShark V2 X
+lastLoadedOutputPreset=Galaxy Buds 2
+outputAutoloadingFallbackPreset=Razer BlackShark V2 X
+visiblePresetSheetPage=autoloadingPage
+width=1896

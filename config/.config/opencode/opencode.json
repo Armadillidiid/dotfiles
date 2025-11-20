@@ -42,7 +42,7 @@
         "pnpm",
         "dlx",
         "figma-developer-mcp",
-        "--figma-api-key=$FIGMA_API_KEY",
+        "--figma-api-key=$P_FIGMA_API_KEY",
         "--stdio"
       ]
     },
@@ -52,11 +52,8 @@
         "pnpm",
         "dlx",
         "@sentry/mcp-server@latest",
-        "--access-token=$SENTRY_PAT"
-      ],
-      "environment": {
-        "SENTRY_PAT": "{env:SENTRY_PAT}"
-      }
+        "--access-token=$P_SENTRY_API_KEY"
+      ]
     }
   }
 }

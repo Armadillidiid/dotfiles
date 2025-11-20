@@ -8,6 +8,7 @@ return {
           return require("sidekick.cli.picker.snacks").send(...)
         end,
       },
+      ---@field win? snacks.picker.win.Config
       win = {
         input = {
           keys = {
@@ -15,6 +16,8 @@ return {
               "sidekick_send",
               mode = { "n", "i" },
             },
+            ["<c-h><c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<c-h><c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
           },
         },
       },
