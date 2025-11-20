@@ -1,0 +1,145 @@
+[Default Applications]
+# Web browsers
+text/html=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+
+# Images
+image/jpeg=org.kde.gwenview.desktop
+image/jpg=org.kde.gwenview.desktop
+image/png=org.kde.gwenview.desktop
+image/gif=org.kde.gwenview.desktop
+image/bmp=org.kde.gwenview.desktop
+image/webp=org.kde.gwenview.desktop
+image/svg+xml=org.kde.gwenview.desktop
+image/tiff=org.kde.gwenview.desktop
+
+# Videos
+video/mp4=org.kde.haruna.desktop
+video/x-matroska=org.kde.haruna.desktop
+video/webm=org.kde.haruna.desktop
+video/mpeg=org.kde.haruna.desktop
+video/x-msvideo=org.kde.haruna.desktop
+video/quicktime=org.kde.haruna.desktop
+
+# Audio
+audio/mpeg=audacious.desktop
+audio/mp3=audacious.desktop
+audio/flac=audacious.desktop
+audio/ogg=audacious.desktop
+audio/x-vorbis+ogg=audacious.desktop
+audio/wav=audacious.desktop
+audio/x-wav=audacious.desktop
+
+# Documents
+application/pdf=org.kde.okular.desktop
+text/plain=org.kde.kate.desktop
+text/x-log=org.kde.kate.desktop
+text/markdown=org.kde.kate.desktop
+
+# Office documents
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
+application/vnd.ms-excel=libreoffice-calc.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
+application/vnd.ms-powerpoint=libreoffice-impress.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop
+application/msword=libreoffice-writer.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+
+# Archives
+application/zip=org.kde.ark.desktop
+application/x-tar=org.kde.ark.desktop
+application/x-compressed-tar=org.kde.ark.desktop
+application/x-7z-compressed=org.kde.ark.desktop
+application/x-rar=org.kde.ark.desktop
+application/gzip=org.kde.ark.desktop
+application/x-bzip=org.kde.ark.desktop
+application/x-xz=org.kde.ark.desktop
+
+# Application launchers
+x-scheme-handler/discord=vesktop.desktop
+
+# File manager
+inode/directory=org.kde.dolphin.desktop
+
+[Added Associations]
+# Web browsers
+text/html=firefox.desktop;google-chrome.desktop;
+application/xhtml+xml=firefox.desktop;google-chrome.desktop;
+application/x-extension-htm=firefox.desktop;
+application/x-extension-html=firefox.desktop;
+application/x-extension-shtml=firefox.desktop;
+application/x-extension-xht=firefox.desktop;
+application/x-extension-xhtml=firefox.desktop;
+x-scheme-handler/http=firefox.desktop;google-chrome.desktop;
+x-scheme-handler/https=firefox.desktop;google-chrome.desktop;
+x-scheme-handler/chrome=firefox.desktop;google-chrome.desktop;
+
+# Images
+image/jpeg=org.kde.gwenview.desktop;gimp.desktop;
+image/jpg=org.kde.gwenview.desktop;gimp.desktop;
+image/png=org.kde.gwenview.desktop;gimp.desktop;
+image/gif=org.kde.gwenview.desktop;gimp.desktop;
+image/bmp=org.kde.gwenview.desktop;gimp.desktop;
+image/webp=org.kde.gwenview.desktop;gimp.desktop;
+image/svg+xml=org.kde.gwenview.desktop;firefox.desktop;
+image/tiff=org.kde.gwenview.desktop;gimp.desktop;
+
+# Videos
+video/mp4=org.kde.haruna.desktop;mpv.desktop;vlc.desktop;
+video/x-matroska=org.kde.haruna.desktop;mpv.desktop;vlc.desktop;
+video/webm=org.kde.haruna.desktop;mpv.desktop;vlc.desktop;
+video/mpeg=org.kde.haruna.desktop;mpv.desktop;vlc.desktop;
+video/x-msvideo=org.kde.haruna.desktop;mpv.desktop;vlc.desktop;
+video/quicktime=org.kde.haruna.desktop;mpv.desktop;vlc.desktop;
+
+# Audio
+audio/mpeg=audacious.desktop;vlc.desktop;
+audio/mp3=audacious.desktop;vlc.desktop;
+audio/flac=audacious.desktop;vlc.desktop;
+audio/ogg=audacious.desktop;vlc.desktop;
+audio/x-vorbis+ogg=audacious.desktop;vlc.desktop;
+audio/wav=audacious.desktop;vlc.desktop;
+audio/x-wav=audacious.desktop;vlc.desktop;
+
+# Documents
+application/pdf=org.kde.okular.desktop;firefox.desktop;
+text/plain=nvim.desktop;org.kde.kate.desktop;gvim.desktop;code.desktop;
+text/x-log=org.kde.kate.desktop;nvim.desktop;gvim.desktop;
+text/markdown=nvim.desktop;org.kde.kate.desktop;okularApplication_md.desktop;
+
+# Office documents
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop;
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop;
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop;
+application/vnd.ms-excel=libreoffice-calc.desktop;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop;
+application/vnd.ms-powerpoint=libreoffice-impress.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop;
+application/msword=libreoffice-writer.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+
+# Archives
+application/zip=org.kde.ark.desktop;
+application/x-tar=org.kde.ark.desktop;
+application/x-compressed-tar=org.kde.ark.desktop;
+application/x-7z-compressed=org.kde.ark.desktop;
+application/x-rar=org.kde.ark.desktop;
+application/gzip=org.kde.ark.desktop;
+application/x-bzip=org.kde.ark.desktop;
+application/x-xz=org.kde.ark.desktop;
+
+# Application launchers
+x-scheme-handler/discord=vesktop.desktop;discord.desktop;
+
+# File manager
+inode/directory=org.kde.dolphin.desktop;
