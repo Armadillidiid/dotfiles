@@ -8,3 +8,5 @@ foo.*
 data
 **/Session.vim
 **/lazygit/state.yml
+.zellij.swap.kdl
+.zellij.kdl
