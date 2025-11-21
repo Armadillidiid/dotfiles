@@ -70,6 +70,7 @@ x-scheme-handler/discord=vesktop.desktop
 
 # File manager
 inode/directory=org.kde.dolphin.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 # Web browsers

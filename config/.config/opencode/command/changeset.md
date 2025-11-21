@@ -31,4 +31,4 @@ Guidelines to adhere to:
 - Be specific. Avoid generic statements like “improved UX” or “updated API.”
 - Describe the actual user-visible behavior change, bug fix, or new capability.
 - If multiple packages are impacted, include each package and its bump type in the frontmatter.
-- The description should be max 2 sentences.
+- The description should be max one sentence.

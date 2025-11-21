@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: web2app-remove <AppName>"
+  return 1
+fi
+
+APP_NAME="$1"
+ICON_DIR="$HOME/.local/share/applications/icons"
+DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
+ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
+
+rm "$DESKTOP_FILE"
+rm "$ICON_PATH"

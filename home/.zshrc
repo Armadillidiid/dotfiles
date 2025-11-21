@@ -52,7 +52,6 @@ alias vpnd="nmcli con down uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 # AI - GitHub Copilot
 alias ask='gh copilot suggest -t shell'
 alias x='gh copilot explain -t shell'
-alias reset-mouse='sudo sh -c "echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/unbind; sleep 0.2; echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/bind"'
 
 # Extract files
 function extract () {
@@ -73,7 +72,7 @@ function extract () {
       *.deb)       ar x $1      ;;
       *.tar.xz)    tar xf $1    ;;
       *.tar.zst)   tar xf $1    ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
+      *)           echo "'$1' cannot be extracted" ;;
     esac
   else
     echo "'$1' is not a valid file"
@@ -83,13 +82,6 @@ function extract () {
 # btrfs aliases
 alias btrfsfs="sudo btrfs filesystem df /"
 alias btrfsli="sudo btrfs su li / -t"
-
-# snapper aliasesq
-alias snapcroot="sudo snapper -c root create-config /"
-alias snapchome="sudo snapper -c home create-config /home"
-alias snapli="sudo snapper list"
-alias snapcr="sudo snapper -c root create"
-alias snapch="sudo snapper -c home create"
 
 # auto ls after every 'cd' 
 function chpwd() {
@@ -173,20 +165,6 @@ function zj() {
 
 # Zellij
 alias zda="zellij delete-all-sessions"
-alias zds="zellij delete-session"
-function zr () { zellij run --name "$*" -- zsh -ic "$*";}
-function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
-function zri () { zellij run --name "$*" --in-place -- zsh -ic "$*";}
-function ze () { zellij edit "$*";}
-function zef () { zellij edit --floating "$*";}
-function zei () { zellij edit --in-place "$*";}
-function zpipe () { 
-  if [ -z "$1" ]; then
-    zellij pipe;
-  else 
-    zellij pipe -p $1;
-  fi
-}
 function z () {
   ZJ_SESSIONS=$(zellij list-sessions -s)
   NO_SESSIONS=$(echo "${ZJ_SESSIONS}" | wc -l)
@@ -310,6 +288,7 @@ zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
 eval "$(fzf --zsh)" # FZF-tab
 eval "$(zoxide init zsh --cmd cd)" # Zoxide
 eval "$(oh-my-posh init zsh -c $HOME/.config/oh-my-posh/omp.json)" # oh-my-posh
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 # . <(eksctl completion zsh)
 # . <(minikube completion zsh) 
 
@@ -319,58 +298,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/emmanuel/.lmstudio/bin"
 
-web2app() {
-  if [ "$#" -ne 3 ]; then
-    echo "Usage: web2app <AppName> <AppURL> <IconURL> (IconURL must be in PNG -- use https://dashboardicons.com)"
-    return 1
-  fi
-
-  local APP_NAME="$1"
-  local APP_URL="$2"
-  local ICON_URL="$3"
-  local ICON_DIR="$HOME/.local/share/applications/icons"
-  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
-  local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
-
-  mkdir -p "$ICON_DIR"
-
-  if ! curl -sL -o "$ICON_PATH" "$ICON_URL"; then
-    echo "Error: Failed to download icon."
-    return 1
-  fi
-
-  cat > "$DESKTOP_FILE" <<EOF
-[Desktop Entry]
-Version=1.0
-Name=$APP_NAME
-Comment=$APP_NAME
-Exec=chromium --new-window --ozone-platform=wayland --app="$APP_URL" --name="$APP_NAME" --class="$APP_NAME"
-Terminal=false
-Type=Application
-Icon=$ICON_PATH
-StartupNotify=true
-EOF
-
-  chmod +x "$DESKTOP_FILE"
-}
-
-web2app-rm() {
-  if [ "$#" -ne 1 ]; then
-    echo "Usage: web2app-remove <AppName>"
-    return 1
-  fi
-
-  local APP_NAME="$1"
-  local ICON_DIR="$HOME/.local/share/applications/icons"
-  local DESKTOP_FILE="$HOME/.local/share/applications/${APP_NAME}.desktop"
-  local ICON_PATH="${ICON_DIR}/${APP_NAME}.png"
-
-  rm "$DESKTOP_FILE"
-  rm "$ICON_PATH"
-}
-
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
 # Ignore commands in history
 function zshaddhistory() {
     [[ $1 == jrnl* ]] && return 1 
@@ -379,10 +306,11 @@ function zshaddhistory() {
     return 0
 }
 
-# Others - API Keys from GNU pass
+# GNU pass
 export P_OPENAI_API_KEY=$(pass api/openai)
 export P_GROQ_API_KEY=$(pass api/groq)
 export P_TAVILY_API_KEY=$(pass api/tavily)
 export P_ANTHROPIC_API_KEY=$(pass api/anthropic)
 export P_FIGMA_API_KEY=$(pass api/figma)
 export P_SENTRY_API_KEY=$(pass api/sentry)
+export P_CONTEXT7_API_KEY=$(pass api/context7)
