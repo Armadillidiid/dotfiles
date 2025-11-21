@@ -10,3 +10,4 @@ data
 **/lazygit/state.yml
 .zellij.swap.kdl
 .zellij.kdl
+config/.config/zsh/.zcompdump
