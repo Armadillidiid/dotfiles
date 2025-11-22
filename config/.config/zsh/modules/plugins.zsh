@@ -17,6 +17,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Register local completions directory
 zinit add-fpath $HOME/.comp
 
+# Load bracketed-paste-magic BEFORE plugins
+# This sets $zle_bracketed_paste array required by Oh My Posh
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
 # Load Oh-My-Zsh plugins
 zinit wait lucid for   \
   OMZP::common-aliases  \

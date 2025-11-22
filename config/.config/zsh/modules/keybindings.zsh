@@ -56,6 +56,7 @@ bindkey "^V" quoted-insert              # Ctrl+V - Insert next char literally
 
 # Plugin Integrations
 bindkey '^[ ' autosuggest-accept        # Alt+Space - Accept autosuggestion
+bindkey "^[[200~" bracketed-paste       # Bracketed paste mode (loaded in plugins.zsh)
 
 # Custom Widgets
 # Open history file in editor
