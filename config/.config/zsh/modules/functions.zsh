@@ -28,11 +28,6 @@ function extract() {
   fi
 }
 
-# Auto ls after every cd
-function chpwd() {
-    emulate -L zsh
-    ls -a
-}
 
 # List aliases that start with given chars, or run which
 function w() {
@@ -127,4 +122,10 @@ function yy() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+# Auto ls after every cd
+function chpwd() {
+    emulate -L zsh
+    ls -a
 }
