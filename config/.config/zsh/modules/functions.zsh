@@ -56,18 +56,15 @@ function dev() {
     # If no name is provided, prompt user to select a directory
     if [ -z "$name" ]; then
         directory=$(ghq list | fzf) || return
-        
-        if [ -n "$directory" ]; then
-            cd "$HOME/ghq/$directory" || return
-        else
+        if [ -z "$directory" ]; then
             return
         fi
+    else
+        directory="$name"
     fi
 
-    # If a name is provided, check if we are already in the correct directory
-    if [ "$name" != "$directory" ]; then
-        cd "$HOME/ghq/$directory" || return
-    fi
+    # Change to the selected directory
+    cd "$HOME/ghq/$directory" || return
 }
 
 # Navigate to workspace and attach to zellij session
@@ -76,23 +73,20 @@ function zj() {
     local name="$1"
 
     if [ -z "$name" ]; then
-        cd ~/ghq || return
-        local directory=$(fd -t d -d 3 | awk -F'/' 'NF == 4' | fzf)
-
+        local directory=$(ghq list | fzf)
+        
         if [ -z "$directory" ]; then
-            cd - || return
             return
         fi
 
-        workspace="$(pwd)/$directory"
-        name=$(echo -n "$workspace" | rev | cut -d'/' -f2 | rev | sed -re 's/\./_/g')
+        workspace="$directory"
+        name=$(basename "$workspace")
     else
         workspace=$(pwd)
     fi
 
-    if [ "$(pwd)" != "$workspace" ]; then
-        cd "$workspace" || return
-    fi
+    # Change to workspace directory
+    cd "$workspace" || return
 
     if [ -e "$workspace/.zellij.kdl" ]; then
         zellij --layout "$workspace/.zellij.kdl" attach -f -c "$name"
