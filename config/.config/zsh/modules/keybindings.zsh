@@ -1,6 +1,10 @@
-# Clear all existing keybindings
-bindkey -d
-bindkey -r '^[['     # unbind vi-cmd-mode (ESC)
+# Clear all keybinds
+bindkey -rp ''
+
+# Add back keybinds for all printable characters
+bindkey -R "^\\\\"-"^\^" self-insert
+bindkey -R " "-"~" self-insert
+bindkey -R "\M-^@"-"\M-^?" self-insert
 
 # Essential Line Editing
 bindkey "^A" beginning-of-line           # Ctrl+A - Go to start of line
@@ -114,4 +118,4 @@ show-keybindings() {
     zle reset-prompt
 }
 zle -N show-keybindings
-bindkey '^[k' show-keybindings        # Alt+K - Show keybindings in human format
+bindkey '^[[1;5P' show-keybindings        # Ctrl+F1
