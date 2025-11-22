@@ -19,7 +19,7 @@ bindkey "^_" undo                        # Ctrl+/ - Undo last change
 # bindkey "^B" backward-char               # Ctrl+B - Move back one character
 # bindkey "^F" forward-char                # Ctrl+F - Move forward one character
 # bindkey "^H" backward-delete-char        # Ctrl+H / Backspace - Delete char before
-# bindkey "^?" backward-delete-char        # Backspace - Delete char before
+bindkey "^?" backward-delete-char        # Backspace - Delete char before
 bindkey "^D" delete-char                 # Ctrl+D - Delete char under cursor
 
 # Arrow keys

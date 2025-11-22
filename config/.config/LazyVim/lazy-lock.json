@@ -2,6 +2,7 @@
   "ChatGPT.nvim": { "branch": "main", "commit": "5b6d296eefc75331e2ff9f0adcffbd7d27862dd6" },
   "CodeGPT.nvim": { "branch": "master", "commit": "9d0a58a0bdc858f2e9729b8b5ac8b994c3453c8f" },
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
+  "CopilotChat.nvim": { "branch": "main", "commit": "df5376c132382dd47e3e552612940cbf25b3580c" },
   "LazyVim": { "branch": "main", "commit": "561da43c435f330674c9b18bb335be7e1126d928" },
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
   "SchemaStore.nvim": { "branch": "main", "commit": "e71cc0607284739892287f6a2d92753999179dcf" },

@@ -18,4 +18,16 @@ return {
       },
     },
   },
+  keys = {
+    { "<leader>aa", false },
+    { "<leader>aP", false },
+    {
+      "<leader>aP",
+      function()
+        require("sidekick.cli").prompt()
+      end,
+      mode = { "n", "x" },
+      desc = "Sidekick Select Prompt",
+    },
+  },
 }
