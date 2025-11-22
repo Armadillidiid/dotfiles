@@ -1,5 +1,6 @@
 # Clear all existing keybindings
 bindkey -d
+bindkey -r '^[['     # unbind vi-cmd-mode (ESC)
 
 # Essential Line Editing
 bindkey "^A" beginning-of-line           # Ctrl+A - Go to start of line
@@ -74,3 +75,43 @@ copy-line() {
 }
 zle -N copy-line 
 bindkey '^X^Y' copy-line                 # Ctrl+X Ctrl+Y - Copy line to clipboard
+
+# Show keybindings in human-readable format
+show-keybindings() {
+    {
+        bindkey | sed -E \
+            -e 's/"//g' \
+            -e 's/^([^ ]+) +/\1\t/' \
+            -e 's/\^M/ENTER/g' \
+            -e 's/\^I/TAB/g' \
+            -e 's/\^H/CTRL+H/g' \
+            -e 's/\^\?/BACKSPACE/g' \
+            -e 's/\^_/CTRL+_/g' \
+            -e 's/\^\[\[1;5C/CTRL+→/g' \
+            -e 's/\^\[\[1;5D/CTRL+←/g' \
+            -e 's/\^\[\[Z/SHIFT+TAB/g' \
+            -e 's/\^\[\[A/↑/g' \
+            -e 's/\^\[\[B/↓/g' \
+            -e 's/\^\[\[C/→/g' \
+            -e 's/\^\[\[D/←/g' \
+            -e 's/\^\[OA/↑/g' \
+            -e 's/\^\[OB/↓/g' \
+            -e 's/\^\[OC/→/g' \
+            -e 's/\^\[OD/←/g' \
+            -e 's/\^\[\[200~/BRACKETED-PASTE/g' \
+            -e 's/\^\[([a-zA-Z])/ALT+\1/g' \
+            -e 's/\^\[ /ALT+SPACE/g' \
+            -e 's/\^\[\^/ALT+CTRL+/g' \
+            -e 's/\^\[/ESC+/g' \
+            -e 's/\^X\^/CTRL+X CTRL+/g' \
+            -e 's/\^X/CTRL+X /g' \
+            -e 's/\^([A-Z@])/CTRL+\1/g' \
+            -e 's/\^([a-z])/CTRL+\1/g' \
+        | awk -F'\t' '{printf "%-35s -> %s\n", $1, $2}' \
+        | sort
+    } | ${PAGER:-less}
+    
+    zle reset-prompt
+}
+zle -N show-keybindings
+bindkey '^[k' show-keybindings        # Alt+K - Show keybindings in human format
