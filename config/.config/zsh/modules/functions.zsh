@@ -88,8 +88,9 @@ function zj() {
     # Change to workspace directory
     cd "$workspace" || return
 
-    if [ -e "$workspace/.zellij.kdl" ]; then
-        zellij --layout "$workspace/.zellij.kdl" attach -f -c "$name"
+    local layout_path=".zellij.kdl"
+    if [ -e "$layout_path" ]; then
+        zellij --layout "$layout_path" attach -f -c "$name"
     else
         zellij attach -c "$name"
     fi

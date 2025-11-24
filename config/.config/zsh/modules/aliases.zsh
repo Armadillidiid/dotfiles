@@ -28,7 +28,7 @@ alias ...="cd ../.."
 alias grep='grep --color=always'
 alias rg="rg --sort path"
 alias fz="fzf"
-alias sudt="sudoedit"
+alias sudit="sudoedit"
 alias pn='pnpm'
 alias ghqp="ghq get -p"
 alias ghql="ghq list"

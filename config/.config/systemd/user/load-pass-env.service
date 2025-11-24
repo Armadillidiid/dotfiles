@@ -1,0 +1,12 @@
+[Unit]
+Description=Load secrets from pass CLI into the systemd user environment
+After=gpg-agent.service
+Wants=gpg-agent.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/load-pass-env.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

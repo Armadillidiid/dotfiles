@@ -27,7 +27,7 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
       "headers": {
-        "CONTEXT7_API_KEY": "Bearer $P_CONTEXT7_API_KEY"
+        "CONTEXT7_API_KEY": "Bearer {env:P_CONTEXT7_API_KEY}"
       }
     },
     "gh_grep": {
@@ -45,7 +45,7 @@
         "pnpm",
         "dlx",
         "figma-developer-mcp",
-        "--figma-api-key=$P_FIGMA_API_KEY",
+        "--figma-api-key={env:P_FIGMA_API_KEY}",
         "--stdio"
       ]
     },
@@ -55,8 +55,9 @@
         "pnpm",
         "dlx",
         "@sentry/mcp-server@latest",
-        "--access-token=$P_SENTRY_API_KEY"
-      ]
+        "--access-token={env:P_SENTRY_API_KEY}"
+      ],
+      "enabled": false
     }
   }
 }

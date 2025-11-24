@@ -2,6 +2,14 @@
 # Environment Variables and Configuration
 # ============================================================================
 
+# Import API keys from systemd user environment
+# These are loaded by the systemd user service 'load-pass-env.service'
+if command -v systemctl &>/dev/null; then
+    while IFS='=' read -r key value; do
+        [[ "$key" =~ ^P_.*_API_KEY$ ]] && export "$key=$value"
+    done < <(systemctl --user show-environment 2>/dev/null | grep '^P_.*_API_KEY=')
+fi
+
 # NVM (Node Version Manager)
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 

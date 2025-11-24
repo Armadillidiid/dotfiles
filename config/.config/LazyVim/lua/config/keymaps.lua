@@ -113,3 +113,8 @@ vim.keymap.set("n", "gb", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", { de
 -- Recenter screen on j/k movements
 vim.keymap.set("n", "<C-S-j>", "jzz", { desc = "Move down and recenter" })
 vim.keymap.set("n", "<C-S-k>", "kzz", { desc = "Move up and recenter" })
+
+-- Allow saving of files as sudo
+vim.cmd([[
+  cnoreabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+]])
