@@ -58,6 +58,19 @@
         "--access-token={env:P_SENTRY_API_KEY}"
       ],
       "enabled": false
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "--network=host",
+        "mcr.microsoft.com/playwright/mcp"
+      ],
+      "enabled": true
     }
   }
 }

@@ -34,3 +34,9 @@ export PASSWORD_STORE_DIR="$HOME/.dotfiles/password-store/.password-store"
 
 # GHQ
 export GHQ_ROOT="$HOME/ghq"
+
+# Askpass
+export SUDO_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket

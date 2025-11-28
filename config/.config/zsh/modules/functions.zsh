@@ -64,7 +64,7 @@ function dev() {
     fi
 
     # Change to the selected directory
-    cd "$HOME/ghq/$directory" || return
+    builtin cd "$HOME/ghq/$directory" || return
 }
 
 # Navigate to workspace and attach to zellij session
@@ -79,14 +79,14 @@ function zj() {
             return
         fi
 
-        workspace="$directory"
-        name=$(basename "$workspace")
+        workspace="$HOME/ghq/$directory"
+        name=$(basename "$directory")
     else
         workspace=$(pwd)
     fi
 
     # Change to workspace directory
-    cd "$workspace" || return
+    builtin cd "$workspace" || return
 
     local layout_path=".zellij.kdl"
     if [ -e "$layout_path" ]; then

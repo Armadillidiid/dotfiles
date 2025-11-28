@@ -31,6 +31,12 @@ zinit wait lucid for   \
   OMZP::docker-compose  \
   OMZP::command-not-found 
 
+# Configure zsh-autosuggestions to disable default keybindings
+# We'll set our own keybindings in keybindings.zsh
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=()
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=()
+
 # Load essential ZSH plugins
 zinit wait lucid light-mode for  \
   atinit"zicompinit; zicdreplay" zsh-users/zsh-syntax-highlighting \
