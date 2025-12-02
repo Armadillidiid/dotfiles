@@ -1,15 +1,15 @@
 [StreamInputs]
-inputDevice=alsa_input.platform-snd_aloop.0.analog-stereo
+inputDevice=alsa_input.pci-0000_05_00.6.analog-stereo
 mostUsedPresets=Razer BlackShark V2 X
 plugins=rnnoise#0
-usedPresets=Razer BlackShark V2 X:6
+usedPresets=Razer BlackShark V2 X:7
 visiblePlugin=rnnoise#0
 
 [StreamOutputs]
 mostUsedPresets=Galaxy Buds 2,Razer BlackShark V2 X
-outputDevice=alsa_output.platform-snd_aloop.0.analog-stereo
+outputDevice=bluez_output.D0_1B_49_9B_BA_47.1
 plugins=equalizer#0
-usedPresets=Razer BlackShark V2 X:8,Galaxy Buds 2:22
+usedPresets=Razer BlackShark V2 X:16,Galaxy Buds 2:48
 visiblePlugin=equalizer#0
 
 [Window]
@@ -17,5 +17,4 @@ height=1008
 lastLoadedInputPreset=Razer BlackShark V2 X
 lastLoadedOutputPreset=Galaxy Buds 2
 outputAutoloadingFallbackPreset=Razer BlackShark V2 X
-visiblePresetSheetPage=autoloadingPage
 width=1896

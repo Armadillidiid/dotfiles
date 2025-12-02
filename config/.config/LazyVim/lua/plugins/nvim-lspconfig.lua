@@ -28,7 +28,18 @@ return {
       },
       vtsls = {
         settings = {
+          vtsls = {
+            experimental = {
+              completion = {
+                entriesLimit = 50,
+              },
+            },
+          },
           typescript = {
+            preferences = {
+              includePackageJsonAutoImports = "off",
+              -- autoImportFileExcludePatterns = true,
+            },
             tsserver = {
               maxTsServerMemory = 8192,
             },

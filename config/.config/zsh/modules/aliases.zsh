@@ -49,7 +49,7 @@ alias lzd="lazydocker"
 
 # Utilities
 alias q="tldr"
-alias d0t='cd ~/.dotfiles; zellij attach -c dotfiles'
+alias d0t='cd ~/.dotfiles; zellij --layout=".zellij.kdl" attach -f -c dotfiles'
 alias rec='asciinema rec'
 alias play='asciinema play'
 alias j='jrnl'
