@@ -6,6 +6,10 @@ bindkey -R "^\\\\"-"^\^" self-insert
 bindkey -R " "-"~" self-insert
 bindkey -R "\M-^@"-"\M-^?" self-insert
 
+# Ignore earbuds special key
+# My earbuds send this escape sequence when their button is pressed.
+bindkey -s $'\e[57429u' ''
+
 # Essential Line Editing
 bindkey "^A" beginning-of-line           # Ctrl+A - Go to start of line
 bindkey "^E" end-of-line                 # Ctrl+E - Go to end of line

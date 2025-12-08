@@ -118,3 +118,10 @@ vim.keymap.set("n", "<C-S-k>", "kzz", { desc = "Move up and recenter" })
 vim.cmd([[
   cnoreabbrev w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 ]])
+
+-- Disable AI code suggestions
+vim.keymap.set("n", "<leader>ai", function()
+  vim.cmd("Copilot disable")
+  vim.cmd("Sidekick nes disable")
+  print("AI Suggestions Disabled")
+end, { desc = "Toggle AI Code Suggestions" })

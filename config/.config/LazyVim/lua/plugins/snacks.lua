@@ -36,7 +36,7 @@ return {
     },
   },
   keys = {
-    { "<c-p>", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    { "<c-p>", LazyVim.pick("files"), { root = false }, desc = "Find Files (Root Dir)" },
     { "<c-n>", LazyVim.pick("oldfiles"), desc = "Recent" },
   },
 }

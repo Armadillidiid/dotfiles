@@ -47,7 +47,8 @@
         "figma-developer-mcp",
         "--figma-api-key={env:P_FIGMA_API_KEY}",
         "--stdio"
-      ]
+      ],
+      "enabled": false
     },
     "sentry": {
       "type": "local",
@@ -70,7 +71,7 @@
         "--network=host",
         "mcr.microsoft.com/playwright/mcp"
       ],
-      "enabled": true
+      "enabled": false
     }
   }
 }
