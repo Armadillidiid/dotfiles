@@ -35,3 +35,5 @@ vim.g.lazyvim_picker = "snacks"
 vim.g.ai_cmp = false
 
 opt.laststatus = 4
+
+vim.g.sidekick_nes = false

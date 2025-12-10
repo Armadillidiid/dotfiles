@@ -1,7 +1,6 @@
 -- Whitelist of directories where tsgo should be enabled
 local tsgo_whitelist = {
   "/home/emmanuel/ghq/github.com/Armadillidiid/cal.com",
-  "/home/emmanuel/ghq/github.com/Heartbeat-365/heartbeat",
 }
 
 -- Check if current directory is in the whitelist

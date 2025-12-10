@@ -11,3 +11,5 @@ data
 .zellij.swap.kdl
 .zellij.kdl
 **.zcompdump*
+config/.config/easyeffects/db/easyeffectsrc
+config/.config/easyeffects/db/rnnoiserc
