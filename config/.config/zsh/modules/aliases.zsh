@@ -53,6 +53,7 @@ alias d0t='cd ~/.dotfiles; zellij --layout=".zellij.kdl" attach -f -c dotfiles'
 alias rec='asciinema rec'
 alias play='asciinema play'
 alias j='jrnl'
+alias cm='cmdly'
 
 # VPN
 alias vpn="nmcli con up uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
