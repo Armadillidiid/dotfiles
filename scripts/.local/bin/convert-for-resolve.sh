@@ -65,12 +65,11 @@ trap cleanup EXIT
 log_message "START: Converting $BASENAME"
 
 # Convert with ffmpeg
-# DNxHR HQ profile with yuv422p color space
+# MPEG-4 with quality 3 (lower is better, 1-31 scale)
 # PCM signed 16-bit little-endian audio
 if ffmpeg -i "$INPUT_FILE" \
-    -c:v dnxhd \
-    -profile:v dnxhr_hq \
-    -pix_fmt yuv422p \
+    -c:v mpeg4 \
+    -q:v 4 \
     -c:a pcm_s16le \
     -ar 48000 \
     "$OUTPUT_FILE" \
