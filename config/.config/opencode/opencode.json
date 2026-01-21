@@ -72,6 +72,30 @@
         "mcr.microsoft.com/playwright/mcp"
       ],
       "enabled": false
+    },
+    "aws-diagram": {
+      "type": "local",
+      "command": ["uvx", "awslabs.aws-diagram-mcp-server"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "enabled": false
+    },
+    "aws-documentation": {
+      "type": "local",
+      "command": ["uvx", "awslabs.aws-documentation-mcp-server@latest"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "enabled": false
+    },
+    "aws-api": {
+      "type": "local",
+      "command": ["uvx", "awslabs.aws-api-mcp-server@latest"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "enabled": false
     }
   }
 }

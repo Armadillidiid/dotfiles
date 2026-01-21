@@ -27,6 +27,8 @@ map("n", "<leader>LD", ":Leet daily<cr>", { desc = "Daily question" })
 map("n", "<leader>Li", ":Leet info<cr>", { desc = "Info" })
 map("n", "<leader>Lp", ":Leet list<cr>", { desc = "Problem Picker" })
 map("n", "<leader>Lu", ":Leet last_submit<cr>", { desc = "Previous submitted" })
+map("n", "<leader>Lc", ":Leet console<cr>", { desc = "Console" })
+map("n", "<leader>Lo", ":Leet open<cr>", { desc = "Open in Browser" })
 
 -- Navbuddy
 map("n", "<leader>nv", ":Navbuddy<CR>", { desc = "Navbuddy" })
