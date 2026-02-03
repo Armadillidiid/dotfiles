@@ -22,6 +22,9 @@ eval "$(zoxide init zsh --cmd cd)"                                     # Zoxide
 eval "$(oh-my-posh init zsh -c $HOME/.config/oh-my-posh/omp.json)"   # Oh-my-posh
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"  # Kiro terminal
 
+# Custom completions
+# cmdly: ~/.comp/_cmdly (auto-loaded via zinit add-fpath in plugins.zsh)
+
 # Optional completions (commented out)
 # . <(eksctl completion zsh)
 # . <(minikube completion zsh)

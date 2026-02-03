@@ -62,6 +62,7 @@ alias vpnd="nmcli con down uuid 46383f82-2a39-4bb9-a9da-82fc506f5489"
 # AI - GitHub Copilot
 alias ask='gh copilot suggest -t shell'
 alias x='gh copilot explain -t shell'
+alias ralph=$scripts/ralph.sh
 
 # Btrfs
 alias btrfsfs="sudo btrfs filesystem df /"

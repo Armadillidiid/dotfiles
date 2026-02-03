@@ -77,7 +77,7 @@ if ffmpeg -i "$INPUT_FILE" \
 	>>"$LOG_FILE" 2>&1; then
 
 	# Move temp file to final location
-	mv "$TEMP_OUTPUT" "$OUTPUT_FILE"
+	mv -f "$TEMP_OUTPUT" "$OUTPUT_FILE"
 
 	log_message "SUCCESS: Converted to $OUTPUT_FILE"
 
