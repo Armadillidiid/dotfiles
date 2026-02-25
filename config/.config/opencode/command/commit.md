@@ -1,9 +1,9 @@
 ---
-description: Git commit and push
+description: Git commit
 subtask: true
 ---
 
-Commit and push using the Conventional Commits specification.
+Commit using the Conventional Commits specification.
 
 The commit message should be structured as follows:
 
@@ -15,8 +15,6 @@ The commit message should be structured as follows:
 [optional footer(s)]
 ```
 
-prefer to explain WHY something was done from an end user perspective instead of
-WHAT was done.
+Prefer to explain why you made the change from an end-user perspective, not just what changed. Don't use generic messages like "improved agent experience" — be specific about user-facing effects.
 
-do not do generic messages like "improved agent experience" be very specific
-about what user facing changes were made.
+If your changes touch multiple domains (for example: UI, API, database), create separate commits per domain so each commit stays atomic and easy to review.

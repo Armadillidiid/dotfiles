@@ -22,7 +22,7 @@ for ((i = 1; i <= $1; i++)); do
 		fi
 	done < <(opencode run "$issues" \
 		--file progress.txt ~/.dotfiles/scripts/.local/bin/prompt.md \
-		--model "github-copilot/claude-sonnet-4.5" \
+		--model "github-copilot/claude-sonnet-4.6" \
 		--agent build \
 		--format json)
 

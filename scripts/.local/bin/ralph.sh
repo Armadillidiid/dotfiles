@@ -21,7 +21,7 @@ Use this to leave a note for the next person working in the codebase. \
 5. Make a git commit of that feature. \
 ONLY WORK ON A SINGLE FEATURE. \
 If, while implementing the feature, you notice the PRD is complete, output <promise>COMPLETE</promise>" \
-      --file .opencode/plans progress.txt --model "github-copilot/claude-sonnet-4.5"
+      --file .opencode/plans progress.txt --model "github-copilot/claude-sonnet-4.6"
   )
 
   echo "$result"
