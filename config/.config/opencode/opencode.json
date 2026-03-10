@@ -7,9 +7,6 @@
     ".agents/*.md",
     "~/.config/opencode/rules/*.md"
   ],
-  "keybinds": {
-    "command_list": "ctrl+p,<leader>p"
-  },
   "agent": {
     "explain": {
       "description": "A concise explainer agent for short snippets. Provides clear, minimal explanations without unnecessary detail.",

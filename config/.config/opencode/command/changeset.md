@@ -68,6 +68,19 @@ Use best judgement when processing input.
 
 ## Before You Create a Changeset
 
+**Create separate changesets for distinct changes.** 
+
+- One changeset per logical user-facing change
+- If you're documenting multiple unrelated features or breaking changes, create multiple changeset files
+- Each changeset should focus on a single distinct change, not bundle unrelated updates together
+- Multiple changesets are always better than one bloated changeset trying to cover everything
+
+Example: If you're adding a new backend API and simultaneously migrating to a different ORM, create two changesets:
+1. One for the API feature in `@repo/api`
+2. One for the ORM migration in `@repo/database`
+
+This keeps changes clear and makes it easier to understand what each package version bump represents. It also helps with release notes and changelog clarity.
+
 **Be certain about user impact.** 
 
 - Only document changes that affect end users or their experience
@@ -86,7 +99,7 @@ Use best judgement when processing input.
 
 ## Output Format
 
-Changeset files are created at `.changeset/<descriptive-name>.md` and follow this structure:
+Changeset files are created at `.changeset/<descriptive-name>.md` (one file per distinct change) and follow this structure:
 
 ```md
 ---
@@ -101,8 +114,9 @@ Changeset files are created at `.changeset/<descriptive-name>.md` and follow thi
 1. **Describe the WHY, not just the WHAT** - Explain why the change matters from an end-user perspective.
 2. **Be specific** - Avoid generic statements like "improved UX" or "updated API." Name the actual behavior change.
 3. **One sentence maximum** - Keep descriptions concise and focused.
-4. **Multiple packages** - If multiple packages are impacted, include each with its bump type in the frontmatter.
-5. **Tone** - Write clearly and directly. Focus on user impact, not implementation details.
+4. **One changeset per distinct change** - Don't bundle unrelated changes. Create separate files for separate logical changes.
+5. **Multiple packages in one changeset** - Only when changes are tightly related. If changes are independent, use separate changesets.
+6. **Tone** - Write clearly and directly. Focus on user impact, not implementation details.
 
 ---
 
@@ -116,15 +130,4 @@ Input: Changes that redesign the admin dashboard with new visualizations
 ---
 
 Admin home page now displays real-time performance metrics with interactive charts, replacing the static summary view.
-```
-
-Example with multiple packages:
-
-```md
----
-"@repo/web": minor
-"@repo/api": patch
----
-
-Admin dashboard displays performance metrics provided by updated API endpoint with improved data accuracy.
 ```
