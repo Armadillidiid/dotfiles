@@ -1,6 +1,7 @@
 ---
 description: Generate a Changeset entry
 subtask: true
+model: github-copilot/gpt-5-mini
 ---
 
 You are responsible for creating changeset entries that document user-facing impacts of code changes. Your job is to analyze what changed and communicate its value clearly.
