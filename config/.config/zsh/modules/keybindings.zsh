@@ -58,6 +58,14 @@ bindkey "^L" clear-screen               # Ctrl+L - Clear screen
 bindkey "^G" send-break                 # Ctrl+G - Abort current action
 bindkey "^V" quoted-insert              # Ctrl+V - Insert next char literally
 
+# Alt+Shift+C - Go to previous directory
+cd-prev-dir() {
+    cd -
+    zle reset-prompt
+}
+zle -N cd-prev-dir
+bindkey '^[C' cd-prev-dir              # Alt+Shift+C - cd -
+
 # Plugin Integrations
 bindkey '^[ ' autosuggest-accept        # Alt+Space - Accept autosuggestion
 bindkey '^E' autosuggest-accept   # Ctrl+E - Accept autosuggestion

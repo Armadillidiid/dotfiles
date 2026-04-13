@@ -2,7 +2,7 @@
 
 Issues JSON is provided at start of context. Parse it to get open issues with their bodies and comments.
 
-You've also been passed a file containing the last 10 RALPH commits (SHA, date, full message). Review these to understand what work has been done.
+You've also been passed a file containing the last 10 commits (SHA, date, full message). Review these to understand what work has been done.
 
 # TASK BREAKDOWN
 
@@ -43,6 +43,7 @@ Then, find a way to break it into a smaller chunk and only do that chunk (i.e. c
 Before committing, run the feedback loops:
 
 - `pnpm run test` to run the tests
+- `pnpm run lint` to run the linting
 - `pnpm run typecheck` to run the type checker
 
 # COMMIT
@@ -62,6 +63,14 @@ Keep it concise.
 If the task is complete, close the original GitHub issue.
 
 If the task is not complete, leave a comment on the GitHub issue with what was done.
+
+## BLACKLIST
+
+Don't work on these issues for whatever reason:
+
+1. <https://github.com/Akron-Realty-LTD/akron-realty/issues/51>
+2. <https://github.com/Akron-Realty-LTD/akron-realty/issues/49>
+3. <https://github.com/Akron-Realty-LTD/akron-realty/issues/48>
 
 # FINAL RULES
 
