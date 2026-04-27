@@ -64,6 +64,18 @@ If the task is complete, close the original GitHub issue.
 
 If the task is not complete, leave a comment on the GitHub issue with what was done.
 
+When including feedback loop results (`test`, `lint`, `typecheck`) in issue comments, never paste full raw logs. Always post a concise summary.
+
+## COMMENT SAFETY
+
+Prevent shell interpolation artifacts in issue comments:
+
+- Treat comment text as literal markdown, not shell code.
+- Never build comment bodies with `echo "..."`, command substitution, or unescaped double-quoted strings.
+- When using `gh issue comment`, prefer `--body-file` with a temporary markdown file.
+- If using a heredoc, always use a single-quoted delimiter (`<<'EOF'`) so `$VAR`, backticks, and `$(...)` are not expanded.
+- Before posting, quickly verify the final comment text does not contain accidental escaped fragments, broken `$` variables, or command output placeholders.
+
 ## BLACKLIST
 
 Don't work on these issues for whatever reason:
