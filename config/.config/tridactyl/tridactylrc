@@ -243,4 +243,5 @@ bindurl google(\.[a-zA-Z0-9]+){1,2}/search gF hint -Jqbc #top_nav a, #search a, 
 " Blacklist
 autocmd DocStart youtube.com mode ignore
 autocmd DocStart excalidraw.com mode ignore
+autocmd DocStart npmx.dev mode ignore
 autocmd DocStart ^https?://(www\.)?youtube\.com mode ignore

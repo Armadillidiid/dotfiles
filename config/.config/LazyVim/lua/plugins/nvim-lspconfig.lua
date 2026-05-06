@@ -59,10 +59,11 @@ return {
           },
           typescript = {
             experimental = {
-              useTsgo = should_use_tsgo(),
+              useTsgo = true,
             },
             preferences = {
               includePackageJsonAutoImports = "off",
+              importModuleSpecifierEnding = "ts", -- prefer .ts over .js
               -- autoImportFileExcludePatterns = true,
             },
             tsserver = {
