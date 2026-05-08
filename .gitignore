@@ -13,3 +13,6 @@ data
 **.zcompdump*
 config/.config/easyeffects/db/easyeffectsrc
 config/.config/easyeffects/db/rnnoiserc
+config/.config/rofi/.current_wallpaper
+config/.config/systemd/user/*.wants/
+config/.config/systemd/user/*/*.wants/
