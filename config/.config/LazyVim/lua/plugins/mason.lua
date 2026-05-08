@@ -8,7 +8,7 @@ return {
       "astro-language-server",
       "python-lsp-server",
       "mdx-analyzer",
-      "ruff-lsp",
+      "ruff",
       "prisma-language-server",
       "pyright",
       "js-debug-adapter",
