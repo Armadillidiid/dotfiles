@@ -45,6 +45,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.aerial" },
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },
+    -- LazyVim refactoring extra still needs local async.nvim override in lua/plugins/*.
     { import = "lazyvim.plugins.extras.editor.refactoring" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
     { import = "lazyvim.plugins.extras.editor.mini-diff" },
