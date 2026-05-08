@@ -8,8 +8,6 @@ foo.*
 data
 **/Session.vim
 **/lazygit/state.yml
-.zellij.swap.kdl
-.zellij.kdl
 **.zcompdump*
 config/.config/easyeffects/db/easyeffectsrc
 config/.config/easyeffects/db/rnnoiserc
