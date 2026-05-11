@@ -23,7 +23,7 @@
 )
 
 (defalias
-  cap (tap-hold 200 200 caps (layer-toggle fncaps))
+  cap (layer-while-held fncaps)
 )
 
 (defcfg
