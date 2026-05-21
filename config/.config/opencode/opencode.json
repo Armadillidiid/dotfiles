@@ -8,6 +8,14 @@
     "~/.config/opencode/rules/*.md",
     ".opencode/rules/*.md"
   ],
+  "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "us-east-1",
+        "profile": "default"
+      }
+    }
+  },
   "mcp": {
     "context7": {
       "type": "remote",
@@ -67,21 +75,15 @@
       },
       "enabled": false
     },
-    "aws-documentation": {
+    "aws": {
       "type": "local",
-      "command": ["uvx", "awslabs.aws-documentation-mcp-server@latest"],
-      "environment": {
-        "FASTMCP_LOG_LEVEL": "ERROR"
-      },
-      "enabled": false
-    },
-    "aws-api": {
-      "type": "local",
-      "command": ["uvx", "awslabs.aws-api-mcp-server@latest"],
-      "environment": {
-        "FASTMCP_LOG_LEVEL": "ERROR"
-      },
-      "enabled": false
+      "command": [
+        "uvx",
+        "mcp-proxy-for-aws@latest",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--metadata",
+        "AWS_REGION=us-west-2"
+      ]
     }
   }
 }
