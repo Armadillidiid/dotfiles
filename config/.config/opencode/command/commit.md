@@ -1,7 +1,5 @@
 ---
 description: Git commit
-subtask: true
-model: github-copilot/gpt-5-mini
 ---
 
 Commit using the Conventional Commits specification.
