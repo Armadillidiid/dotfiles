@@ -38,23 +38,15 @@ opt.laststatus = 4
 
 vim.g.sidekick_nes = false
 
--- Force OSC52 clipboard inside Zellij (workaround: Zellij drops terminal reply)
--- Custom provider writes OSC52 and returns immediately, no response wait.
+-- Use ojroques/nvim-osc52 clipboard provider inside Zellij
+-- Writes OSC52 to stderr, no response wait (Zellij drops terminal reply)
 if vim.env.ZELLIJ then
-  local function osc52(reg, lines)
-    local text = table.concat(lines, "\n")
-    local enc = vim.fn.system({ "base64", "-w0" }, text):gsub("%s+", "")
-    vim.api.nvim_out_write("\027]52;" .. reg .. ";" .. enc .. "\027\\")
+  local function copy(lines, _)
+    require("osc52").copy(table.concat(lines, "\n"))
   end
   vim.g.clipboard = {
-    name = "OSC52 (no-wait)",
-    copy = {
-      ["+"] = function(lines, _) osc52("c", lines) end,
-      ["*"] = function(lines, _) osc52("c", lines) end,
-    },
-    paste = {
-      ["+"] = function() end,
-      ["*"] = function() end,
-    },
+    name = "osc52",
+    copy = { ["+"] = copy, ["*"] = copy },
+    paste = { ["+"] = function() end, ["*"] = function() end },
   }
 end
