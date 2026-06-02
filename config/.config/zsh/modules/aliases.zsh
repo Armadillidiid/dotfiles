@@ -82,3 +82,6 @@ alias dpsa='docker ps -a'
 alias drit='docker container run -it'
 alias dsta='docker stop $(docker ps -q)'
 alias dxcit='docker container exec -it'
+
+# Kitty
+alias ssh='kitten ssh'
