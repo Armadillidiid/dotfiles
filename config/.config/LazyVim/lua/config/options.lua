@@ -38,21 +38,23 @@ opt.laststatus = 4
 
 vim.g.sidekick_nes = false
 
--- Force OSC52 clipboard inside Zellij (workaround for missing DA1 reporting)
--- Upstream fix: https://github.com/zellij-org/zellij/pull/4545 (merged, unreleased)
+-- Force OSC52 clipboard inside Zellij (workaround: Zellij drops terminal reply)
+-- Custom provider writes OSC52 and returns immediately, no response wait.
 if vim.env.ZELLIJ then
-  local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
-  if ok then
-    vim.g.clipboard = {
-      name = "OSC 52",
-      copy = {
-        ["+"] = osc52.copy("+"),
-        ["*"] = osc52.copy("*"),
-      },
-      paste = {
-        ["+"] = osc52.paste("+"),
-        ["*"] = osc52.paste("*"),
-      },
-    }
+  local function osc52(reg, lines)
+    local text = table.concat(lines, "\n")
+    local enc = vim.fn.system({ "base64", "-w0" }, text):gsub("%s+", "")
+    vim.api.nvim_out_write("\027]52;" .. reg .. ";" .. enc .. "\027\\")
   end
+  vim.g.clipboard = {
+    name = "OSC52 (no-wait)",
+    copy = {
+      ["+"] = function(lines, _) osc52("c", lines) end,
+      ["*"] = function(lines, _) osc52("c", lines) end,
+    },
+    paste = {
+      ["+"] = function() end,
+      ["*"] = function() end,
+    },
+  }
 end
