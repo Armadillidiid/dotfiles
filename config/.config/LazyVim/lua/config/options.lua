@@ -37,3 +37,22 @@ vim.g.ai_cmp = false
 opt.laststatus = 4
 
 vim.g.sidekick_nes = false
+
+-- Force OSC52 clipboard inside Zellij (workaround for missing DA1 reporting)
+-- Upstream fix: https://github.com/zellij-org/zellij/pull/4545 (merged, unreleased)
+if vim.env.ZELLIJ then
+  local ok, osc52 = pcall(require, "vim.ui.clipboard.osc52")
+  if ok then
+    vim.g.clipboard = {
+      name = "OSC 52",
+      copy = {
+        ["+"] = osc52.copy("+"),
+        ["*"] = osc52.copy("*"),
+      },
+      paste = {
+        ["+"] = osc52.paste("+"),
+        ["*"] = osc52.paste("*"),
+      },
+    }
+  end
+end
