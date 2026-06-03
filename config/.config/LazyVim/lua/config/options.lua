@@ -38,10 +38,10 @@ opt.laststatus = 4
 
 vim.g.sidekick_nes = false
 
--- OSC52 clipboard via ojroques/nvim-osc52 inside Zellij
+-- OSC52 clipboard via ojroques/nvim-osc52 inside Zellij over SSH
 -- Zellij forwards OSC52 to Kitty but drops terminal reply
 -- Paste reads from Neovim's own register to avoid terminal query hang
-if vim.env.ZELLIJ then
+if vim.env.ZELLIJ and (vim.env.SSH_CLIENT or vim.env.SSH_CONNECTION) then
   local function copy(lines, _)
     require("osc52").copy(table.concat(lines, "\n"))
   end
