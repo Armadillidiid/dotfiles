@@ -8,6 +8,12 @@
     "~/.config/opencode/rules/*.md",
     ".opencode/rules/*.md"
   ],
+  "permission": {
+    "external_directory": {
+      "~/ghq/**": "allow",
+      "~/.local/share/opencode/**": "allow",
+    }
+  },
   "provider": {
     "amazon-bedrock": {
       "options": {
