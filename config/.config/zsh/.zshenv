@@ -43,4 +43,7 @@ export SSH_ASKPASS_REQUIRE=prefer
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 
 # AWS Bedrock
-# export AWS_BEARER_TOKEN_BEDROCK="$(pass api/aws-bedrock)"
+export AWS_BEARER_TOKEN_BEDROCK="$(pass api/aws-bedrock)"
+
+# omarchy doesn't set XDG_RUNTIME_DIR via SSH, so we set it here
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
