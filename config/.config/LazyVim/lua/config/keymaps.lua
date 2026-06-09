@@ -128,5 +128,12 @@ vim.keymap.set("n", "<leader>ai", function()
   print("AI Suggestions Disabled")
 end, { desc = "Toggle AI Code Suggestions" })
 
+-- Enable AI code suggestions
+vim.keymap.set("n", "<leader>aI", function()
+  vim.cmd("Copilot enable")
+  vim.cmd("Sidekick nes enable")
+  print("AI Suggestions Enabled")
+end, { desc = "Toggle AI Code Suggestions" })
+
 -- Vale is now handled by vale-ls (LSP) - no manual trigger needed
 -- Diagnostics appear automatically like other LSP servers
