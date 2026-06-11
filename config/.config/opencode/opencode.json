@@ -11,7 +11,7 @@
   "permission": {
     "external_directory": {
       "~/ghq/**": "allow",
-      "~/.local/share/opencode/**": "allow",
+      "~/.local/share/opencode/**": "allow"
     }
   },
   "provider": {
@@ -20,6 +20,48 @@
         "region": "us-east-1",
         "profile": "default"
       }
+    }
+  },
+  "references": {
+    "tanstack-form": {
+      "path": "~/ghq/github.com/TanStack/form",
+      "description": "Use for TanStack Form APIs, types, validation, and field patterns"
+    },
+    "tanstack-query": {
+      "repository": "TanStack/query",
+      "description": "Use for TanStack Query hooks, queries, mutations, cache, and SSR patterns"
+    },
+    "tanstack-table": {
+      "path": "~/ghq/github.com/TanStack/table",
+      "description": "Use for TanStack Table column definitions, sorting, filtering, and pagination"
+    },
+    "drizzle-orm": {
+      "path": "~/ghq/github.com/drizzle-team/drizzle-orm-docs",
+      "description": "Use for Drizzle ORM schema, relations, CRUD queries, and migrations"
+    },
+    "better-auth": {
+      "path": "~/ghq/github.com/better-auth/better-auth",
+      "description": "Use for Better Auth server/client API, auth plugins, middleware, and session handling"
+    },
+    "nextjs": {
+      "repository": "vercel/next.js",
+      "description": "Use for Next.js App Router, pages router, data fetching, RSC, and API routes",
+      "branch": "canary"
+    },
+    "shadcn-ui": {
+      "path": "~/ghq/github.com/shadcn-ui/ui",
+      "description": "Use for shadcn/ui component patterns, CLI, registry, and theming conventions"
+    },
+    "base-ui": {
+      "repository": "mui/base-ui",
+      "description": "Use for Base UI headless React components, unstyled primitives, and accessible design system building blocks"
+    },
+    "floci": {
+      "path": "~/ghq/github.com/floci-io/floci",
+      "description": "Use for floci for emulating AWS services locally similar to LocalStack"
+    },
+    "calcom": {
+      "path": "~/ghq/github.com/calcom/cal.diy"
     }
   },
   "mcp": {
