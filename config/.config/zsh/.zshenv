@@ -6,6 +6,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.lmstudio/bin"
 export PATH="$PATH:$HOME/.local/share/mise/shims"
 export PATH="$PATH:$HOME/.local/share/omarchy/bin"
+export PATH="$PATH:$HOME/.vite-plus/bin"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
