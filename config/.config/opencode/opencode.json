@@ -11,7 +11,9 @@
   "permission": {
     "external_directory": {
       "~/ghq/**": "allow",
-      "~/.local/share/opencode/**": "allow"
+      "~/.local/share/opencode/**": "allow",
+      "~/.config/**": "allow",
+      "~/.dotfiles/**": "allow"
     }
   },
   "provider": {
@@ -133,6 +135,15 @@
         "AWS_REGION=us-west-2"
       ],
       "enabled": false
-    }
+    },
+    "void": {
+      "type": "local",
+      "command": ["pnpm", "dlx", "void", "mcp"],
+      "enabled": false
+    },
+    "linear": {
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
+    },
   }
 }
