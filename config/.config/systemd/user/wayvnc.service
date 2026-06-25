@@ -1,7 +1,7 @@
 [Unit]
 Description=WayVNC server
 After=graphical-session.target
-Requires=graphical-session.target
+BindsTo=graphical-session.target
 
 [Service]
 Type=simple
@@ -10,4 +10,4 @@ Restart=on-failure
 RestartSec=5
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
