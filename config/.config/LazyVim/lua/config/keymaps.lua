@@ -31,6 +31,7 @@ map("n", "<leader>Lc", ":Leet console<cr>", { desc = "Console" })
 map("n", "<leader>Lo", ":Leet open<cr>", { desc = "Open in Browser" })
 
 -- Navbuddy
+vim.keymap.del("n", "<leader>n")
 map("n", "<leader>nv", ":Navbuddy<CR>", { desc = "Navbuddy" })
 
 -- Undo Changes Picker

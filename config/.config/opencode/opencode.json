@@ -11,7 +11,9 @@
   "permission": {
     "external_directory": {
       "~/ghq/**": "allow",
-      "~/.local/share/opencode/**": "allow"
+      "~/.local/share/opencode/**": "allow",
+      "~/.config/**": "allow",
+      "~/.dotfiles/**": "allow"
     }
   },
   "provider": {
@@ -62,6 +64,14 @@
     },
     "calcom": {
       "path": "~/ghq/github.com/calcom/cal.diy"
+    },
+    "orpc": {
+      "repository": "middleapi/orpc",
+      "description": "Use for defining API contracts, procedures, and type-safe client/server communication with OpenAPI spec"
+    },
+    "hey-api": {
+      "repository": "hey-api/hey-api",
+      "description": "Use to turn OpenAPI specifications into typed SDKs, Zod schemas, TanStack Query hooks, validators and more"
     }
   },
   "mcp": {
@@ -132,6 +142,16 @@
         "--metadata",
         "AWS_REGION=us-west-2"
       ],
+      "enabled": false
+    },
+    "void": {
+      "type": "local",
+      "command": ["pnpm", "dlx", "void", "mcp"],
+      "enabled": false
+    },
+    "linear": {
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
       "enabled": false
     }
   }
