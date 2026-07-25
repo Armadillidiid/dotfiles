@@ -1,7 +1,6 @@
 ---
 description: Fetch Copilot PR review suggestions and create a plan to address them
 agent: plan
-subtask: true
 ---
 
 Fetch the Copilot (or any bot) review comments on a GitHub PR and create a plan to address them.
