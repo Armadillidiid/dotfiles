@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+input=$(cat)
+
+if [[ "$input" == *"host=api.github.com"* ]]; then
+  user=$(gh api user --jq .login 2>/dev/null) || exit 1
+  token=$(gh auth token 2>/dev/null) || exit 1
+
+  printf 'username=%s\n' "$user"
+  printf 'password=%s\n' "$token"
+else
+  exec gh auth git-credential "$@"
+fi

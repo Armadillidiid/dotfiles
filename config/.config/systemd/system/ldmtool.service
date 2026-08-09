@@ -1,0 +1,15 @@
+[Unit]
+Description=Create LDM (Windows dynamic disk) device-mapper volumes
+Documentation=man:ldmtool(8)
+DefaultDependencies=no
+After=systemd-udevd.service
+Before=local-fs-pre.target
+ConditionPathExists=/dev/mapper/control
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ldmtool create all
+RemainAfterExit=no
+
+[Install]
+WantedBy=local-fs-pre.target
