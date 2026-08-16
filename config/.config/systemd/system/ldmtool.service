@@ -8,7 +8,10 @@ ConditionPathExists=/dev/mapper/control
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/ldmtool create all
+# Wait for udev to finish probing the USB drive, then retry a few times in
+# case enumeration lags behind local-fs-pre.target. Each ldmtool create all
+# run is idempotent (existing volumes are reported, not duplicated).
+ExecStart=/bin/sh -c 'udevadm settle; for i in 1 2 3 4 5; do ldmtool create all && exit 0; sleep 1; done; exit 1'
 RemainAfterExit=no
 
 [Install]
