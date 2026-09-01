@@ -49,7 +49,7 @@ function w() {
 }
 
 # Navigate to project directory from ghq
-function dev() {
+function dx() {
     local name="$1"
     local directory
 
