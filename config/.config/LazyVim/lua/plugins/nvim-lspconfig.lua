@@ -31,10 +31,8 @@ return {
     servers = {
       -- Disable ltex-ls (grammar checker) - it crashes with Java XML parsing limits
       ltex = false,
-      -- Configure vale-ls (replacement for ltex)
-      vale_ls = {
-        filetypes = { "markdown", "text", "tex" },
-      },
+      -- Disable vale-ls
+      vale_ls = false,
       tailwindcss = {
         settings = {
           tailwindCSS = {

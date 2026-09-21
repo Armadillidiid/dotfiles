@@ -35,7 +35,6 @@ return {
       "tailwindcss-language-server",
       "typescript-language-server",
       "yaml-language-server",
-      "vale-ls", -- Language server for Vale (better than vale + nvim-lint)
     })
   end,
 }
