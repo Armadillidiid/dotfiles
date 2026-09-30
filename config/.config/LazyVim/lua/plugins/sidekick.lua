@@ -4,7 +4,7 @@ return {
   opts = {
     cli = {
       tools = {
-        amazon_q = { cmd = { "q", "--v3" } },
+        amazon_q = { cmd = { "kiro-cli", "--v3" } },
       },
       ---@class sidekick.cli.Mux
       ---@field backend? "tmux"|"zellij" Multiplexer backend to persist CLI sessions
