@@ -1,6 +1,6 @@
 ---
 description: Generate a Changeset entry
-subtask: true
+subagent: true
 model: github-copilot/gpt-5-mini
 ---
 
