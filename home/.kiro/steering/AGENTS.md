@@ -1,0 +1,1 @@
+../../../config/.config/opencode/AGENTS.md

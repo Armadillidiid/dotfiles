@@ -1,0 +1,85 @@
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${P_CONTEXT7_API_KEY}"
+      },
+      "autoApprove": ["*"]
+    },
+    "gh_grep": {
+      "url": "https://mcp.grep.app",
+      "autoApprove": ["*"]
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "disabled": true
+    },
+    "figma": {
+      "command": "pnpm",
+      "args": [
+        "dlx",
+        "figma-developer-mcp",
+        "--figma-api-key=${P_FIGMA_API_KEY}",
+        "--stdio"
+      ],
+      "disabled": true
+    },
+    "sentry": {
+      "command": "pnpm",
+      "args": ["dlx", "@sentry/mcp-server@latest", "--access-token=${P_SENTRY_API_KEY}"],
+      "disabled": true
+    },
+    "playwright": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "--network=host",
+        "mcr.microsoft.com/playwright/mcp"
+      ],
+      "disabled": true
+    },
+    "aws-diagram": {
+      "command": "uvx",
+      "args": ["awslabs.aws-diagram-mcp-server"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": true
+    },
+    "aws": {
+      "command": "uvx",
+      "args": [
+        "mcp-proxy-for-aws@latest",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--metadata",
+        "AWS_REGION=us-west-2"
+      ],
+      "disabled": true
+    },
+    "void": {
+      "command": "pnpm",
+      "args": ["dlx", "void", "mcp"],
+      "disabled": true
+    },
+    "linear": {
+      "url": "https://mcp.linear.app/mcp",
+      "disabled": true
+    },
+    "posthog": {
+      "url": "https://mcp.posthog.com/mcp",
+      "disabled": true
+    },
+    "vercel": {
+      "url": "https://mcp.vercel.com",
+      "disabled": true
+    },
+    "tally": {
+      "url": "https://api.tally.so/mcp",
+      "disabled": true
+    }
+  }
+}
