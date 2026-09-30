@@ -1,0 +1,17 @@
+[Unit]
+Description=OpenCode background service
+Documentation=https://opencode.ai/v2/docs
+# Secrets (P_* API keys) must be in the user environment before spawn
+Wants=load-pass-env.service
+After=load-pass-env.service
+
+[Service]
+Type=simple
+# Kill any auto-spawned service first so the bind succeeds; tolerate absence
+ExecStartPre=-/usr/bin/opencode service stop
+ExecStart=%h/.local/bin/opencode-service.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
