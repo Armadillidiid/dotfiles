@@ -1,3 +1,9 @@
+---
+name: copilot
+description: Fetch Copilot PR review suggestions and create a plan to address them
+disable-model-invocation: true
+---
+
 Fetch the Copilot (or any bot) review comments on a GitHub PR and create a plan to address them.
 
 **Input**: $ARGUMENTS — either a PR number (e.g. `21`) or a full PR URL (e.g. `https://github.com/owner/repo/pull/21`).

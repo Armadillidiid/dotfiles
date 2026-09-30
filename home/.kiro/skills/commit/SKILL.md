@@ -1,3 +1,9 @@
+---
+name: commit
+description: Git commit
+disable-model-invocation: true
+---
+
 Commit using the Conventional Commits specification.
 
 The commit message/messages should be structured as follows:
