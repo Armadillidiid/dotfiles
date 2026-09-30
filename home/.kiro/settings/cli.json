@@ -1,4 +1,5 @@
 {
   "chat.sessionDashboard.indexResponses": true,
-  "toolSearch.enabled": true
+  "toolSearch.enabled": true,
+  "chat.enableCheckpoint": true
 }
