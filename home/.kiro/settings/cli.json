@@ -1,3 +1,4 @@
 {
-  "chat.sessionDashboard.indexResponses": true
+  "chat.sessionDashboard.indexResponses": true,
+  "toolSearch.enabled": true
 }
