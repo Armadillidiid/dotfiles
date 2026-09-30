@@ -10,8 +10,7 @@ alias reset-kdeconnect='killall kdeconnectd ; kdeconnect-cli --refresh'
 alias reset-mouse='sudo sh -c "echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/unbind; sleep 0.2; echo -n \"0000:05:00.4\" | tee /sys/bus/pci/drivers/xhci_hcd/bind"'
 
 # Reboot to Windows
-BOOT_NUMBER=$($scripts/get-efi-boot-number.sh "Windows Boot Manager")
-alias wreboot='sudo efibootmgr -n $BOOT_NUMBER && systemctl reboot'
+wreboot() { local num; num=$($scripts/get-efi-boot-number.sh "Windows Boot Manager") && sudo efibootmgr -n "$num" && systemctl reboot; }
 
 # File management
 alias ls='lsd --group-directories-first'

@@ -3,8 +3,8 @@
 # Function to get the boot number from the boot name
 BOOT_NAME="$1"
 
-# Get the boot number
-BOOT_NUMBER=$(efibootmgr | grep -P "\* ${BOOT_NAME}" | awk '{print $1}' | tr -d '*Boot')
+# Get the boot number (first match only - names like "Windows Boot Manager" can have multiple entries)
+BOOT_NUMBER=$(efibootmgr | grep -m1 -P "\* ${BOOT_NAME}" | sed -E 's/^Boot([0-9A-Fa-f]+)\*.*/\1/')
 
 # Check if boot number was found
 if [ -z "$BOOT_NUMBER" ]; then
