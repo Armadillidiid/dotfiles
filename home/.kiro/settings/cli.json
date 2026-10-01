@@ -2,5 +2,6 @@
   "chat.sessionDashboard.indexResponses": true,
   "toolSearch.enabled": true,
   "chat.enableCheckpoint": true,
-  "app.disableAutoupdates": true
+  "app.disableAutoupdates": true,
+  "qterm.enabled": false
 }

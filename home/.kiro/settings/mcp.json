@@ -67,7 +67,7 @@
     },
     "linear": {
       "url": "https://mcp.linear.app/mcp",
-      "disabled": true
+      "disabled": false
     },
     "posthog": {
       "url": "https://mcp.posthog.com/mcp",
