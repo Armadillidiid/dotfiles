@@ -3,7 +3,8 @@
   "toolSearch.enabled": true,
   "chat.enableCheckpoint": true,
   "app.disableAutoupdates": true,
+  "qterm.enabled": false,
+  "chat.preserveScrollback": true,
   "chat.startFullscreen": true,
-  "chat.fullscreenWheelRows": 3,
-  "qterm.enabled": false
+  "chat.fullscreenWheelRows": 1
 }
