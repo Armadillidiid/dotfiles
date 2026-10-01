@@ -1,15 +1,3 @@
 rules:
-  - capability: fs_read
-    match:
-      - "~/ghq/**"
-      - "~/.config/**"
-      - "~/.dotfiles/**"
-      - "~/.local/share/opencode/**"
-    effect: allow
-  - capability: fs_write
-    match:
-      - "~/ghq/**"
-      - "~/.config/**"
-      - "~/.dotfiles/**"
-      - "~/.local/share/opencode/**"
+  - capability: all
     effect: allow
