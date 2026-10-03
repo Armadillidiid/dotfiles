@@ -20,6 +20,10 @@ zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
 eval "$(fzf --zsh)"                                                    # FZF
 eval "$(zoxide init zsh --cmd cd)"                                     # Zoxide
 eval "$(oh-my-posh init zsh -c $HOME/.config/oh-my-posh/omp.json)"   # Oh-my-posh
+if command -v try &>/dev/null; then
+  export TRY_PATH="$HOME/tries"                                        # try: ephemeral workspace dirs
+  eval "$(try init "$TRY_PATH")"                                       # try: interactive dir jumper
+fi
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"  # Kiro terminal
 
 # Custom completions
