@@ -1,0 +1,191 @@
+{
+  "name": "kirocrew",
+  "description": "Autonomous personal AI agent \u2014 schedules recurring tasks, spawns parallel workers, learns from corrections, and operates independently via the dashboard, CLI, and messaging channels",
+  "model": "auto",
+  "tools": [
+    "execute_bash",
+    "fs_read",
+    "fs_write",
+    "code",
+    "grep",
+    "glob",
+    "web_fetch",
+    "web_search",
+    "introspect",
+    "session",
+    "report",
+    "tool_search",
+    "@kirocrew-cron",
+    "@kirocrew-core",
+    "@kirocrew-computer",
+    "@context7",
+    "@gh_grep",
+    "@linear"
+  ],
+  "allowedTools": [
+    "web_fetch",
+    "web_search",
+    "introspect",
+    "session",
+    "report",
+    "@kirocrew-cron/cron_list",
+    "@kirocrew-cron/cron_pause",
+    "@kirocrew-cron/cron_resume",
+    "@kirocrew-cron/cron_trigger",
+    "@kirocrew-cron/cron_remove",
+    "@kirocrew-cron/cron_remove_all",
+    "@kirocrew-core",
+    "@context7",
+    "@gh_grep",
+    "@linear"
+  ],
+  "resources": [
+    "file://.kiro/steering/**/*.md"
+  ],
+  "includeMcpJson": false,
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "execute_bash",
+        "command": "{ echo \"$(date -u +%Y-%m-%dT%H:%M:%SZ) BASH:\"; cat; echo; } >> \"${KIROCREW_HOME:-$HOME/.kiro/crew}/audit.log\""
+      }
+    ]
+  },
+  "prompt": "file:///tmp/.mount_KiroCrjDIpCD/resources/backend-dist/kirocrew-backend/lib/python3.12/site-packages/kiro_crew/config/prompt.md",
+  "mcpServers": {
+    "kirocrew-cron": {
+      "command": "/tmp/.mount_KiroCrjDIpCD/resources/backend-dist/kirocrew-backend/bin/kirocrew",
+      "args": [
+        "mcp-cron"
+      ]
+    },
+    "kirocrew-core": {
+      "command": "/tmp/.mount_KiroCrjDIpCD/resources/backend-dist/kirocrew-backend/bin/kirocrew",
+      "args": [
+        "mcp-core"
+      ]
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${P_CONTEXT7_API_KEY}"
+      },
+      "autoApprove": [
+        "*"
+      ]
+    },
+    "gh_grep": {
+      "url": "https://mcp.grep.app",
+      "autoApprove": [
+        "*"
+      ]
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "disabled": true
+    },
+    "figma": {
+      "command": "/home/emmanuel/.nvm/versions/node/v26.1.0/bin/pnpm",
+      "args": [
+        "dlx",
+        "figma-developer-mcp",
+        "--figma-api-key=${P_FIGMA_API_KEY}",
+        "--stdio"
+      ],
+      "disabled": true
+    },
+    "sentry": {
+      "command": "/home/emmanuel/.nvm/versions/node/v26.1.0/bin/pnpm",
+      "args": [
+        "dlx",
+        "@sentry/mcp-server@latest",
+        "--access-token=${P_SENTRY_API_KEY}"
+      ],
+      "disabled": true
+    },
+    "playwright": {
+      "command": "/usr/bin/docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "--network=host",
+        "mcr.microsoft.com/playwright/mcp"
+      ],
+      "disabled": true
+    },
+    "aws-diagram": {
+      "command": "/usr/bin/uvx",
+      "args": [
+        "awslabs.aws-diagram-mcp-server"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": true
+    },
+    "aws": {
+      "command": "/usr/bin/uvx",
+      "args": [
+        "mcp-proxy-for-aws@latest",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--metadata",
+        "AWS_REGION=us-west-2"
+      ],
+      "disabled": true
+    },
+    "void": {
+      "command": "/home/emmanuel/.nvm/versions/node/v26.1.0/bin/pnpm",
+      "args": [
+        "dlx",
+        "void",
+        "mcp"
+      ],
+      "disabled": true
+    },
+    "linear": {
+      "url": "https://mcp.linear.app/mcp"
+    },
+    "posthog": {
+      "url": "https://mcp.posthog.com/mcp",
+      "disabled": true
+    },
+    "vercel": {
+      "url": "https://mcp.vercel.com",
+      "disabled": true
+    },
+    "tally": {
+      "url": "https://api.tally.so/mcp",
+      "disabled": true
+    }
+  },
+  "permissions": {
+    "rules": [
+      {
+        "capability": "mcp",
+        "match": [
+          "context7/*",
+          "gh_grep/*",
+          "kirocrew-core/*",
+          "kirocrew-cron/cron_list",
+          "kirocrew-cron/cron_pause",
+          "kirocrew-cron/cron_remove",
+          "kirocrew-cron/cron_remove_all",
+          "kirocrew-cron/cron_resume",
+          "kirocrew-cron/cron_trigger",
+          "linear/*"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "web_fetch",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_search",
+        "effect": "allow"
+      }
+    ]
+  }
+}
