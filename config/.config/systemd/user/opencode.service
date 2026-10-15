@@ -7,6 +7,12 @@ After=load-pass-env.service
 
 [Service]
 Type=simple
+# ~/.config/opencode is a symlink into dotfiles; opencode's config watcher
+# calls inotify_add_watch on the dir path and the kernel rejects a symlink
+# ("Not a directory"). That failure is cosmetic for startup but breaks live
+# config hot-reload (see opencode #54933). Point XDG_CONFIG_HOME at the
+# resolved real directory so the watch succeeds and reload works.
+Environment=XDG_CONFIG_HOME=%h/.dotfiles/config/.config
 # Kill any auto-spawned service first so the bind succeeds; tolerate absence
 ExecStartPre=-/usr/bin/opencode service stop
 ExecStart=%h/.local/bin/opencode-service.sh
