@@ -1,12 +1,23 @@
 [Unit]
 Description=Load secrets from pass CLI into the systemd user environment
-After=gpg-agent.service
-Wants=gpg-agent.service
+After=gpg-agent.socket gpg-agent.service
+Wants=gpg-agent.socket
+# Bounded retry: cover boot-time gpg-agent warmup races without spawning a
+# pinentry prompt every 10s forever if a secret was genuinely removed.
+StartLimitIntervalSec=1h
+StartLimitBurst=10
 
 [Service]
 Type=oneshot
+# Touch the agent so the socket is respawned before the first decryption.
+ExecStartPre=-/usr/bin/gpg-connect-agent /bye
 ExecStart=%h/.local/bin/load-pass-env.sh
-RemainAfterExit=yes
+# The script retries each secret; this retries the whole batch if any still fail.
+# No RemainAfterExit: the unit must be startable again so load-pass-env.path
+# can re-run it (and so every consumer start re-reads the pass store).
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=300
 
 [Install]
 WantedBy=default.target

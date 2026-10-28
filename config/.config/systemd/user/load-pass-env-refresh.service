@@ -1,0 +1,6 @@
+[Unit]
+Description=Pick up rotated API keys from the pass store (no-op when unchanged)
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/load-pass-env.sh --if-stale
