@@ -1,0 +1,17 @@
+[Unit]
+Description=Block logind lid-switch handling (lid close must not suspend)
+Documentation=man:systemd-inhibit(1) man:logind.conf(5)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/systemd-inhibit \
+  --what=handle-lid-switch \
+  --who="Hyprland" \
+  --why="Lid close should blank the panel, not suspend" \
+  --mode=block \
+  /usr/bin/sleep infinity
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
