@@ -54,13 +54,13 @@
   "prompt": "Your operating instructions are provided at the top of the session context, wrapped in [AGENT SYSTEM PROMPT] ... [END AGENT SYSTEM PROMPT]. Treat that block as your system prompt and follow it as your authoritative contract.",
   "mcpServers": {
     "kirocrew-cron": {
-      "command": "/tmp/.mount_KiroCrjGjfpC/resources/backend-dist/kirocrew-backend/bin/kirocrew",
+      "command": "/tmp/.mount_KiroCrCMkALH/resources/backend-dist/kirocrew-backend/bin/kirocrew",
       "args": [
         "mcp-cron"
       ]
     },
     "kirocrew-core": {
-      "command": "/tmp/.mount_KiroCrjGjfpC/resources/backend-dist/kirocrew-backend/bin/kirocrew",
+      "command": "/tmp/.mount_KiroCrCMkALH/resources/backend-dist/kirocrew-backend/bin/kirocrew",
       "args": [
         "mcp-core"
       ]

@@ -40,6 +40,7 @@ declare -A secrets=(
     ["P_FIGMA_API_KEY"]="api/figma"
     ["P_SENTRY_API_KEY"]="api/sentry"
     ["P_CONTEXT7_API_KEY"]="api/context7"
+    ["LINEAR_API_KEY"]="api/linear"
 )
 
 # Backoff schedule (seconds). First decryption after boot frequently fails while

@@ -189,6 +189,16 @@
         "type": "remote",
         "url": "https://api.tally.so/mcp",
         "disabled": true
+      },
+      "chrome-devtools-local-browser": {
+        "type": "local",
+        "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--autoConnect"],
+        "disabled": true
+      },
+      "chrome-devtools-remote-cloudflare-browser": {
+        "type": "remote",
+        "url": "https://browser.mcp.cloudflare.com/mcp",
+        "disabled": true
       }
     }
   }

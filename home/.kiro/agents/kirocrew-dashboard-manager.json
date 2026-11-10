@@ -20,7 +20,7 @@
   ],
   "mcpServers": {
     "kirocrew-panel": {
-      "command": "/tmp/.mount_KiroCrjGjfpC/resources/backend-dist/kirocrew-backend/bin/kirocrew",
+      "command": "/tmp/.mount_KiroCrCMkALH/resources/backend-dist/kirocrew-backend/bin/kirocrew",
       "args": [
         "mcp-panel"
       ]
